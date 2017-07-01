@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -36,4 +38,13 @@ public class HomeController {
 		return "home";
 	}
 	
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	@RequestMapping(value = "/postJson", method = RequestMethod.POST)
+	public String getJson(HttpServletRequest request) {
+		String userName = request.getParameter("user_no");  
+	    String password = request.getParameter("password");  
+ 		return "userName";
+	} 
 }
