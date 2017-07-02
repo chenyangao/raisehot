@@ -8,6 +8,7 @@
  */
 package com.hottop.raisehot.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -17,7 +18,7 @@ import java.util.Date;
  * @date 2017年7月2日下午1:53:42
  * 
  */
-public abstract class BaseModel{
+public abstract class BaseModel implements Serializable{
 	 /* 标识 */
     protected Long            id;
 

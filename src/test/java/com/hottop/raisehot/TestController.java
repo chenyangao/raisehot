@@ -43,13 +43,16 @@ public class TestController {
     
     @Autowired
     private UserController userController ;
+
+
       
     // 执行测试方法之前初始化模拟request,response  
     @Before    
     public void setUp(){    
         request = new MockHttpServletRequest();      
         request.setCharacterEncoding("UTF-8");      
-        response = new MockHttpServletResponse();      
+        response = new MockHttpServletResponse(); 
+        userController  = (UserController) AppUtil.getBean("userController");
     }         
     /** 
      *  
@@ -58,6 +61,7 @@ public class TestController {
      */  
     @Test  
     public void testLogin() {   
+        userController  = (UserController) AppUtil.getBean("userController");
         try {  
         	request.setParameter("userName", "admin");
         	request.setParameter("password", "2");

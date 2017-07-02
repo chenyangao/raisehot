@@ -15,10 +15,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
  * @ClassName: UserController
@@ -33,6 +35,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //@Scope("userController")
 //@Qualifier("userController")
 //@RestController
+@Component("userController")
+@SessionAttributes
 public class UserController{
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
