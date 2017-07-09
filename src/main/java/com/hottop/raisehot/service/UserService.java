@@ -27,4 +27,12 @@ public interface UserService {
 	 */  
 	public int insertUser(User user);
 
+	/**   
+	 * @Title: userRegister   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param user
+	 */  
+	
+	public void userRegister(User user);
+
 }

@@ -37,4 +37,13 @@ public class UserServiceImpl implements UserService {
 	public int insertUser(User user) {
 		return userDao.insertUser(user);
 	}
+
+	/* (non-Javadoc)
+	 * @see com.hottop.raisehot.service.UserService#userRegister(com.hottop.raisehot.model.User)
+	 */
+	@Override
+	public void userRegister(User user) {
+		// TODO Auto-generated method stub
+		
+	}
 }

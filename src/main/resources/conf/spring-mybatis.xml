@@ -79,7 +79,5 @@
         p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
  
    <!-- 对数据源进行事务管理 -->
-  <bean id="transactionManager" 
-        class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-        p:dataSource-ref="dataSource"/>
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource"/>
 </beans>

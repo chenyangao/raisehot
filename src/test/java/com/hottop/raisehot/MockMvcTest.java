@@ -1,7 +1,7 @@
 /**   
  * @Title: MockMvcTest.java
  * @Package:com.hottop.raisehot2017年7月2日
- * @Description: TODO(用一句话描述该文件做什么) 
+ * @Description: 演示MockMVC使用 
  * @author cyg(chenyangao@lakala.com)   
  * @date 2017年7月2日下午5:23:08 
  * @version V1.0   
@@ -18,7 +18,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -28,25 +27,25 @@ import org.springframework.web.context.WebApplicationContext;
  * @author cyg(chenyangao@lakala.com)
  * @date 2017年7月2日下午5:23:08
  *
- * 
- */
-/**
- * 演示MockMVC使用
- * @author zhanyongzhi
  */ 
 public class MockMvcTest extends TestBase{
-    private MockMvc mockMvc;
+	
+	@Autowired
+	private WebApplicationContext webApplicationContext;
 
-    @Autowired
-    private WebApplicationContext webApplicationContext;
-
+	// 一些公用的“初始化”代码
     @Before
     public void setUp() throws Exception {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
+	
     @Test  
     public void testUserMockMvc() throws Exception {  
-        mockMvc.perform((get("//htm").param("userName", "admin").param("password", "123"))).andExpect(status().isOk()).andDo(print());
+        mockMvc.perform((get("/htm").param("userName", "admin").param("password", "123"))).andExpect(status().isOk()).andDo(print());
+    } 
+    @Test  
+    public void testPostUserMockMvc() throws Exception {  
+    	mockMvc.perform((post("/test").param("userName", "admin").param("password", "123"))).andExpect(status().isOk()).andDo(print());
     } 
     @Test
     public void demo() throws Exception {
@@ -58,7 +57,7 @@ public class MockMvcTest extends TestBase{
     @Test  
     public void testLoginMockMvc() throws Exception {  
         mockMvc.perform((post("/loginTest").param("userName", "admin").param("password", "123"))).andExpect(status().isOk()).andDo(print());
-    } 
+    }
 
 
 }

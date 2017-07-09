@@ -10,10 +10,10 @@ package com.hottop.raisehot;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.web.servlet.MockMvc;
 
 /**
  * @ClassName: TestBase
@@ -27,12 +27,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  
 @RunWith(SpringJUnit4ClassRunner.class)  
 @ContextConfiguration({"classpath*:root-context.xml, classpath*:conf/spring.xml,classpath*:conf/spring-mybatis.xml,classpath*:conf/spring-mvc.xml"})
-public class TestBase {
-	protected Log logger = LogFactory.getLog(TestBase.class);  
-	    
-   @Before  
-	//一些公用的“初始化”代码  
-	   public void before(){  
-	   }  
-
+public class TestBase{
+	protected Log logger = LogFactory.getLog(TestBase.class);
+    public MockMvc mockMvc;
 }

@@ -19,40 +19,59 @@ import java.util.Date;
  * 
  */
 public abstract class BaseModel implements Serializable{
-	 /* 标识 */
+	private static final long serialVersionUID = -8326036523067527020L;
+
+    /**  
+     * @Fields id : 标识 
+     */  
     protected Long            id;
 
-    /* 记录的状态 */
-    protected String          _state;
+    /**  
+     * @Fields status :记录的状态  
+     */  
+    protected String          status;
 
-    /* 创建日期 */
-    protected Date            createTime;
-
-    /* 最后修改时间 */
-    protected Date            lastModifyTime;
-
-    /* 创建人 */
+    /**  
+     * @Fields creator :  创建人 
+     */  
     protected User        creator;
 
-    /* 修改人 */
+    /**  
+     * @Fields modifier : 修改人  
+     */  
     protected User        modifier;
 
-    /* 版本控制 */
-    protected int             version;
+    /* 创建日期 */
+	/**  
+	 * @Fields createTime :创建日期 
+	 */  
+	protected Date            createTime;
 
-    /* 开始日期 */
+	/**  
+	 * @Fields lastModifyTime : 最后修改时间 
+	 */  
+	protected Date            lastModifyTime;
+
+    /**  
+     * @Fields startDate : 开始日期 
+     */  
     protected Date            startDate;
 
-    /* 结束日期 */
+    /**  
+     * @Fields endDate : 结束日期
+     */  
     protected Date            endDate;
 
-    /* 备注 */
+	/**  
+	 * @Fields version :版本控制  
+	 */  
+	protected int             version;
+
+    /**  
+     * @Fields remark : 备注
+     */  
     protected String          remark;
     
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8326036523067527020L;
 	/* <b>PO推荐实现的方法equals</b>
 	 * 关系数据库里面的记录可以由主键来唯一标识，但是用什么来标记两个对象”相等”呢？两个对象相等与否的判断很可能影响到数据的完整性
 	 * 。如果在Hibernate无法自行制定两个对象相等与否的标准是，则需要用户之定义及重写equals()方法。

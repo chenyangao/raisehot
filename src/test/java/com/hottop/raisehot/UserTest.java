@@ -38,8 +38,6 @@ private UserService userService;
 	@Test
 	public void addUser() {
 		User user = new User();
-		user.setId(2);
-		user.setNickname("你好");
 		System.out.println(userService.insertUser(user));
 	}
 }

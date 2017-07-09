@@ -17,50 +17,44 @@ package com.hottop.raisehot.model;
  * 
  */
 public class User extends BaseModel {
-
 	/**  
-	 * @Fields id : TODO(用一句话描述这个变量表示什么)  
+	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	private int id;
+	private static final long serialVersionUID = 8984069508293665378L;
+	/**  
+	 * @Fields phoneNumber : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String phoneNumber;
+	/**  
+	 * @Fields userType : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String userType;
 	/**  
 	 * @Fields nickname : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private String nickname;
+	/**  
+	 * @Fields password : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String password;
+	/**  
+	 * @Fields isNumber : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String isNumber;
+	/**  
+	 * @Fields qq : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String qq;
+	/**  
+	 * @Fields locus : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String locus;
+	/**  
+	 * @Fields goldCoins : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private Integer goldCoins;
 	
-	private String userId;
-	private String userName;
-	private String userNickname;
-	private String userPassword;
-	private String userPhoto;
-	private String userStatus;
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the nickname
-	 */
-	public String getNickname() {
-		return nickname;
-	}
-
-	/**
-	 * @param nickname the nickname to set
-	 */
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-
+	 
 	/**   
 	 * @Title: main   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
