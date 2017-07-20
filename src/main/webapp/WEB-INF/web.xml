@@ -8,7 +8,10 @@
 	<!-- 读取spring配置文件 FIXME-->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml; classpath:conf/spring.xml;classpath:conf/spring-mybatis.xml;classpath:conf/spring-mvc.xml</param-value>
+		<param-value>/WEB-INF/spring/root-context.xml; 
+		classpath:conf/spring.xml;
+		classpath:conf/spring-mybatis.xml;
+		classpath:conf/spring-mvc.xml</param-value>
 	</context-param>
 
 	<!-- 设计路径变量值 -->
@@ -69,7 +72,7 @@
 
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/html</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
     
 
@@ -85,7 +88,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

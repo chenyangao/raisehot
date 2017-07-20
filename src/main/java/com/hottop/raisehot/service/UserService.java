@@ -35,4 +35,15 @@ public interface UserService {
 	
 	public void userRegister(User user);
 
+	/**   
+	 * @Title: sendMessage   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param username
+	 * @param forType
+	 * @param userType
+	 * @return
+	 */  
+	
+	public String sendMessage(String username, String forType, String userType);
+
 }

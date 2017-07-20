@@ -45,6 +45,7 @@ public class HomeController {
 	public String getJson(HttpServletRequest request) {
 		String userName = request.getParameter("user_no");  
 	    String password = request.getParameter("password");  
- 		return "userName";
+	    System.out.print(userName+password);
+ 		return "index";
 	} 
 }
