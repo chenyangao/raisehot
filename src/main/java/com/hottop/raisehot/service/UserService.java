@@ -35,4 +35,29 @@ public interface UserService {
 	
 	public void userRegister(User user);
 
+	/**   
+	 * @Title: sendMessage   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param username
+	 * @return
+	 */  
+	
+	public String sendMessage(String username);
+
+	/**   
+	 * @Title: login   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param user
+	 */  
+	
+	public void login(User user);
+
+	/**   
+	 * @Title: logout   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param id
+	 */  
+	
+	public void logout(String id);
+
 }

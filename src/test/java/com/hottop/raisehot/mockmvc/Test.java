@@ -21,11 +21,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.hottop.raisehot.TestBase;
@@ -60,7 +58,7 @@ public class Test {
 
     @org.junit.Test
     public void getAllCategoryTest() throws Exception {
-        String responseString = mockMvc.perform( get("/raisehot/html")    //请求的url,请求的方法是get
+        String responseString = mockMvc.perform( get("http://localhost:8080/raisehot/user/index.do")    //请求的url,请求的方法是get
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)  //数据的格式
                         .param("pcode","root")         //添加参数
         ).andExpect(status().isOk())    //返回的状态是200
@@ -70,7 +68,7 @@ public class Test {
     }
     @org.junit.Test
     public void getAllGetCategoryTest() throws Exception {
-    	String responseString = mockMvc.perform(get("/raisehot/html")    //请求的url,请求的方法是get
+    	String responseString = mockMvc.perform(get("/raisehot/user/index.do")    //请求的url,请求的方法是get
     			.contentType(MediaType.APPLICATION_FORM_URLENCODED)  //数据的格式
     			.param("pcode","root")         //添加参数
     			).andExpect(status().isOk())    //返回的状态是200
@@ -80,7 +78,7 @@ public class Test {
     }
     @org.junit.Test
     public void getAllPostCategoryTest() throws Exception {
-    	String responseString = mockMvc.perform( post("/raisehot/postJson")    //请求的url,请求的方法是get
+    	String responseString = mockMvc.perform( post("http://localhost:8080/raisehot/sendmessage.do")    //请求的url,请求的方法是get
     			.contentType(MediaType.APPLICATION_JSON)  //数据的格式
     			.param("pcode","root")         //添加参数
     			).andExpect(status().isOk())    //返回的状态是200

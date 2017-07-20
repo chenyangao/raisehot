@@ -46,4 +46,31 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	/* (non-Javadoc)
+	 * @see com.hottop.raisehot.service.UserService#sendMessage(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public String sendMessage(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hottop.raisehot.service.UserService#login(com.hottop.raisehot.model.User)
+	 */
+	@Override
+	public void login(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hottop.raisehot.service.UserService#logout(java.lang.String)
+	 */
+	@Override
+	public void logout(String id) {
+		// TODO Auto-generated method stub
+		
+	}
 }

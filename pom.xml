@@ -230,7 +230,13 @@
 		<version>1.9.5</version>
 		<scope>test</scope>
 	</dependency>  
-		     
+	
+	 <!-- Fastjson介绍 Fastjson是一个Java语言编写的JSON处理器。 -->
+	<dependency>
+    	<groupId>com.alibaba</groupId>
+    	<artifactId>fastjson</artifactId>
+   		<version>1.2.35</version>
+    </dependency>	     
 		     
 	</dependencies>
 	

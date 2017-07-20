@@ -13,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -65,7 +66,8 @@ public class TestController {
         try {  
         	request.setParameter("userName", "admin");
         	request.setParameter("password", "2");
-            assertEquals("index",userController.login(request,response)) ;  
+            TypeMismatchException ex = null;
+			assertEquals("index",userController.requestTypeMismatch(ex)) ;  
         } catch (Exception e) {  
             e.printStackTrace();  
         }  

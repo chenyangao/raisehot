@@ -22,7 +22,7 @@ import org.springframework.web.context.WebApplicationContext;
  * 
  */
 @WebAppConfiguration
-@ContextConfiguration(locations = { "classpath:applicationContext.xml", "classpath:xxxx-servlet.xml" })
+@ContextConfiguration(locations =  {"classpath*:root-context.xml, classpath*:conf/spring.xml,classpath*:conf/spring-mybatis.xml,classpath*:conf/spring-mvc.xml"})
 public class AbstractContextControllerTests {
 	@Autowired
 	protected WebApplicationContext wac;

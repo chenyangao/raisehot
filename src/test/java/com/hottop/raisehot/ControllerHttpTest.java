@@ -29,7 +29,7 @@ public class ControllerHttpTest {
 		form.add("userName", "cyg");
 		form.add("password", "123456");
 		form.add("age", "12");
-		String url = "http://localhost:8080/raisehot/user/userRegister";
+		String url = "http://localhost:8080/raisehot/user/userregister.do";
 		restTemplate.postForLocation(url , form);
 	}
 

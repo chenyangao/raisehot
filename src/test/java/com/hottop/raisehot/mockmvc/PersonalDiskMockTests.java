@@ -33,7 +33,7 @@ import com.hottop.raisehot.service.UserService;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class PersonalDiskMockTests extends AbstractContextControllerTests {
 
-	private static String URI = "";
+	private static String URI = "http://localhost:8080/raisehot/user/userregister.do";
 
 	private MockMvc mockMvc;
 

@@ -24,7 +24,7 @@ import com.hottop.raisehot.service.UserService;
  *
  * 
  */
-public class UserTest {
+public class UserServiceTest {
 private UserService userService;
 	
 	@Before
