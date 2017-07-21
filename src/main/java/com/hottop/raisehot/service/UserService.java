@@ -39,6 +39,7 @@ public interface UserService {
 	 * @Title: sendMessage   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
 	 * @param username
+<<<<<<< HEAD
 	 * @return
 	 */  
 	
@@ -59,5 +60,13 @@ public interface UserService {
 	 */  
 	
 	public void logout(String id);
+=======
+	 * @param forType
+	 * @param userType
+	 * @return
+	 */  
+	
+	public String sendMessage(String username, String forType, String userType);
+>>>>>>> fd2cc2cd9a5d51f52faf3fce31f69a4d97a461ab
 
 }

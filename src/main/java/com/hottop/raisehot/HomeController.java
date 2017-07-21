@@ -37,4 +37,18 @@ public class HomeController {
 		
 		return "home";
 	}
+<<<<<<< HEAD
+=======
+	
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	@RequestMapping(value = "/postJson", method = RequestMethod.POST)
+	public String getJson(HttpServletRequest request) {
+		String userName = request.getParameter("user_no");  
+	    String password = request.getParameter("password");  
+	    System.out.print(userName+password);
+ 		return "index";
+	} 
+>>>>>>> fd2cc2cd9a5d51f52faf3fce31f69a4d97a461ab
 }

@@ -51,6 +51,7 @@ public class UserServiceImpl implements UserService {
 	 * @see com.hottop.raisehot.service.UserService#sendMessage(java.lang.String, java.lang.String, java.lang.String)
 	 */
 	@Override
+<<<<<<< HEAD
 	public String sendMessage(String username) {
 		// TODO Auto-generated method stub
 		return null;
@@ -73,4 +74,10 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		
 	}
+=======
+	public String sendMessage(String username, String forType, String userType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+>>>>>>> fd2cc2cd9a5d51f52faf3fce31f69a4d97a461ab
 }
