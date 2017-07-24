@@ -11,6 +11,8 @@ package com.hottop.raisehot.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import sun.tools.tree.NewArrayExpression;
+
 /**
  * @ClassName: BaseModel
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -45,17 +47,17 @@ public abstract class BaseModel implements Serializable{
 	/**  
 	 * @Fields createTime :创建日期 
 	 */  
-	protected Date            createTime;
+	protected Date            createTime =  new Date();
 
 	/**  
 	 * @Fields lastModifyTime : 最后修改时间 
 	 */  
-	protected Date            lastModifyTime;
+	protected Date            updateTime = new Date();;
 
     /**  
      * @Fields startDate : 开始日期 
      */  
-    protected Date            startDate;
+    protected Date            startDate =new Date();;
 
     /**  
      * @Fields endDate : 结束日期
@@ -72,6 +74,183 @@ public abstract class BaseModel implements Serializable{
      */  
     protected String          remark;
     
+	/**  
+	 * @Title: BaseModel  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 * @param id
+	 * @param status
+	 * @param creator
+	 * @param modifier
+	 * @param createTime
+	 * @param updateTime
+	 * @param startDate
+	 * @param endDate
+	 * @param version
+	 * @param remark
+	 */
+	public BaseModel(Long id, String status, User creator, User modifier, Date createTime, Date updateTime,
+			Date startDate, Date endDate, int version, String remark) {
+		super();
+		this.id = id;
+		this.status = status;
+		this.creator = creator;
+		this.modifier = modifier;
+		this.createTime = createTime;
+		this.updateTime = updateTime;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.version = version;
+		this.remark = remark;
+	}
+
+	/**  
+	 * @Title: BaseModel  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 */
+	public BaseModel() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the creator
+	 */
+	public User getCreator() {
+		return creator;
+	}
+
+	/**
+	 * @param creator the creator to set
+	 */
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+
+	/**
+	 * @return the modifier
+	 */
+	public User getModifier() {
+		return modifier;
+	}
+
+	/**
+	 * @param modifier the modifier to set
+	 */
+	public void setModifier(User modifier) {
+		this.modifier = modifier;
+	}
+
+	/**
+	 * @return the createTime
+	 */
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	/**
+	 * @param createTime the createTime to set
+	 */
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	/**
+	 * @return the updateTime
+	 */
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	/**
+	 * @param updateTime the updateTime to set
+	 */
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	/**
+	 * @return the startDate
+	 */
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	/**
+	 * @param startDate the startDate to set
+	 */
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	/**
+	 * @return the endDate
+	 */
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	/**
+	 * @param endDate the endDate to set
+	 */
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	/**
+	 * @return the version
+	 */
+	public int getVersion() {
+		return version;
+	}
+
+	/**
+	 * @param version the version to set
+	 */
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	/**
+	 * @return the remark
+	 */
+	public String getRemark() {
+		return remark;
+	}
+
+	/**
+	 * @param remark the remark to set
+	 */
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
 	/* <b>PO推荐实现的方法equals</b>
 	 * 关系数据库里面的记录可以由主键来唯一标识，但是用什么来标记两个对象”相等”呢？两个对象相等与否的判断很可能影响到数据的完整性
 	 * 。如果在Hibernate无法自行制定两个对象相等与否的标准是，则需要用户之定义及重写equals()方法。
@@ -86,8 +265,14 @@ public abstract class BaseModel implements Serializable{
 	public abstract int hashCode();
 
 	/* (non-Javadoc)
-	 * <b>PO推荐实现的方法toString</b>
-	 * toString()方法用于给出该对象的描述信息，因此也推荐重写该方法（Hibernate并没有硬性规定）
+	 * @see java.lang.Object#toString()
 	 */
-	public abstract String toString();
+	@Override
+	public String toString() {
+		return "BaseModel [id=" + id + ", status=" + status + ", creator=" + creator + ", modifier=" + modifier
+				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", version=" + version + ", remark=" + remark + "]";
+	}
+	
+	
 }

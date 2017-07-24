@@ -9,6 +9,7 @@
 package com.hottop.raisehot.service;
 
 import com.hottop.raisehot.model.User;
+import com.sun.tools.javac.util.List;
 
 /**
  * @ClassName: UserService
@@ -20,26 +21,18 @@ import com.hottop.raisehot.model.User;
  */
 public interface UserService {
 	/**   
-	 * @Title: insertUser   
-	 * @Description: TODO(这里用一句话描述这个方法的作用)   
-	 * @param user
-	 * @return
-	 */  
-	public int insertUser(User user);
-
-	/**   
 	 * @Title: userRegister   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
 	 * @param user
+	 * @return 
 	 */  
 	
-	public void userRegister(User user);
+	public User userRegister(User user);
 
 	/**   
 	 * @Title: sendMessage   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
 	 * @param username
-<<<<<<< HEAD
 	 * @return
 	 */  
 	
@@ -48,25 +41,38 @@ public interface UserService {
 	/**   
 	 * @Title: login   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
-	 * @param user
+	 * @param phoneNumber TODO
+	 * @param pasword TODO
+	 * @return 
 	 */  
 	
-	public void login(User user);
+	public User login(String phoneNumber, String pasword);
 
 	/**   
 	 * @Title: logout   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
 	 * @param id
+	 * @param opt TODO
 	 */  
 	
-	public void logout(String id);
-=======
-	 * @param forType
-	 * @param userType
+	public void userOpt(String id, String opt);
+
+	/**   
+	 * @Title: preview   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param id
+	 * @return 
+	 */  
+	
+	public User preview(Long id);
+
+	/**   
+	 * @Title: getAllUser   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param user
 	 * @return
 	 */  
 	
-	public String sendMessage(String username, String forType, String userType);
->>>>>>> fd2cc2cd9a5d51f52faf3fce31f69a4d97a461ab
-
+	public List<User> getAllUser(User user);
+ 
 }

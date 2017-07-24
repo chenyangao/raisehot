@@ -18,8 +18,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.hottop.raisehot.controller.UserController;
-
 /**
  * @ClassName: UserControllerTest
  * @Description: TODO(这里用一句话描述这个类的作用)

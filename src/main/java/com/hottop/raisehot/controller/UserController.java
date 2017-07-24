@@ -8,33 +8,22 @@
  */
 package com.hottop.raisehot.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-import javax.servlet.http.HttpServletRequest;
+import java.text.MessageFormat;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.service.UserService;
+import com.sun.jdi.Method;
+import com.sun.tools.javac.util.List;
 
 /**
  * @ClassName: UserController
@@ -44,211 +33,100 @@ import com.hottop.raisehot.service.UserService;
  * 
  */
 @Controller
-<<<<<<< HEAD
-// @Repository("userController")
-// @Scope("userController")
-// @Qualifier("userController")
-// @RestController
-// @Component("userController")
-// @SessionAttributes
-// @RestController
 @RequestMapping("/user")
 public class UserController extends BaseController {
-=======
-//@Repository("userController")
-//@Scope("userController")
-//@Qualifier("userController")
-//@RestController
-//@Component("userController")
-//@SessionAttributes
-//@RestController
-@RequestMapping("/user")
-public class UserController extends BaseController{
->>>>>>> fd2cc2cd9a5d51f52faf3fce31f69a4d97a461ab
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-
+	protected final Logger       logger = LoggerFactory.getLogger(this.getClass());
+	/**  
+	 * @Fields userService : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/index.do", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-<<<<<<< HEAD
-		model.addAttribute("serverTime", formattedDate);
-		return "index";
-	}
-
-=======
-		model.addAttribute("serverTime", formattedDate );
-		return "index";
-	}
-	
->>>>>>> fd2cc2cd9a5d51f52faf3fce31f69a4d97a461ab
-	@RequestMapping(value = "/test.do", method = RequestMethod.GET)
-	public String index(@CookieValue("serssionId") String sessionId,
-			@RequestHeader("Accept-Language") String accpetLanage, @RequestHeader("Host") String ip) {
-		logger.info("测试", "index");
-		return "home";
-	}
-
-	/**
-	 * 登录入口
-	 * 
-	 * @param request
-	 * @param response
+	/**   
+	 * @Title: login   
+	 * @Description: 登录入口
+	 * @param phoneNumber
+	 * @param password
 	 * @return
-	 */
-<<<<<<< HEAD
+	 */  
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public ModelAndView login(@ModelAttribute(value = "user") User user) {
-		userService.login(user);
+	public ModelAndView login(@RequestParam(value = "phoneNumber", required = true) String phoneNumber,
+			@RequestParam(value = "password", required = true) String password) {
+		logger.info(MessageFormat.format("手机号:{0},密码:{1} ",phoneNumber,password));
+		User user = userService.login(phoneNumber,password);
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("");
-		modelAndView.addObject("", user);
+		modelAndView.addObject("user", user);
 		return modelAndView;
 	}
 
+	/**   
+	 * @Title: userRegister   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param user
+	 * @return
+	 */  
 	@RequestMapping(value = "/register.do", method = RequestMethod.POST)
 	public ModelAndView userRegister(@ModelAttribute(value = "user") User user) {
-		userService.userRegister(user);
-=======
-	@RequestMapping(value = "/logintest.do", method = RequestMethod.POST)
-	public String login(HttpServletRequest request,HttpServletResponse response){
-		String account = request.getParameter("userName");
-		String password = request.getParameter("password");
-		if (account.equals("admin")&&password.equals("1")){
-			return "index";
-		}else{
-			return "login";
-		}
-	}
-	
-	@RequestMapping(value="/userregister.do",method=RequestMethod.POST)
-	public ModelAndView userRegister(@ModelAttribute(value="user") User user){
-		userService.userRegister(user) ;
->>>>>>> fd2cc2cd9a5d51f52faf3fce31f69a4d97a461ab
+		logger.info(MessageFormat.format("用户信息:{0}",user.toString()));
+		user.setWechatId("cygeagle");
+		user.setGoldCoins(0);
+		user.setStatus("0");
+		User userReg = userService.userRegister(user);
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("");
-		modelAndView.addObject("", user);
+ 		modelAndView.addObject("", userReg);
 		return modelAndView;
 	}
-<<<<<<< HEAD
 
-	@RequestMapping(value = "/logout.do", method = RequestMethod.POST, params = "id")
-	public String userLogout(@RequestParam("id") String id) {
-		userService.logout(id);
-=======
-	
-	@RequestMapping(value="/userlogout.do",method=RequestMethod.GET,params="id")
-	public String userLogout(@RequestParam("id") String id){
->>>>>>> fd2cc2cd9a5d51f52faf3fce31f69a4d97a461ab
+	/**   
+	 * @Title: sendMessage   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param phoneNumber
+	 * @return
+	 */  
+	@RequestMapping(value = "/sendmessage.do", method = RequestMethod.POST)
+	public String sendMessage(@RequestParam(value = "phoneNumber", required = true) String phoneNumber) {
+		logger.info(MessageFormat.format("手机号:{0}",phoneNumber));
+		userService.sendMessage(phoneNumber);
+		return phoneNumber;
+	}
+
+	/**   
+	 * @Title: userModify   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param id
+	 * @param opt
+	 * @return
+	 */  
+	@RequestMapping(value = "/userOpt.do", method = RequestMethod.POST, params = "id")
+	public String userModify(@RequestParam(value = "id", required = true) String id,
+			@RequestParam(value = "opt", required = true) String opt) {
+		logger.info(MessageFormat.format("修改用户状态:{0},操作:{1} ",id,opt));
+		logger.info("用户号{}，操作{}", id, opt);
+		userService.userOpt(id, opt);
 		return id;
 	}
 
-	public String getUser(@RequestBody String requestBody) {
-		return requestBody;
+	/**   
+	 * @Title: userPreview   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param id
+	 * @return
+	 */  
+	@RequestMapping(value = "/preview.do", method = RequestMethod.POST)
+	public ModelAndView userPreview(@RequestParam("id") String id) {
+		logger.info(MessageFormat.format("查看详情 ID:{0}",id));
+		User user = userService.preview(Long.valueOf(id));
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("", user);
+		return modelAndView;
 	}
-
-	@RequestMapping("/{checkCode}")
-	public String getCheckCode(@PathVariable("checkCode") String checkCode) {
-		return checkCode;
-	}
-<<<<<<< HEAD
-
-	/**
-	 * 发送短信
-	 * 
-	 * @param username
-	 *            用户名
-	 * @param type
-	 *            register/backpwd
-	 * @return status: 0 2010 2029 1011 1010 1006 1020
-	 */
-	@RequestMapping(value = "/sendmessage.do", method = RequestMethod.POST, produces = "application/json")
-	public String sendMessage(@RequestParam(value = "phoneNumber", required = true) String phoneNumber) {
-		if (null == phoneNumber || "".equals(phoneNumber)) {
-			return retContent(2010, null);
-		}
-		return userService.sendMessage(phoneNumber);
-	}
-
-	// 参数类型不匹配
-	// getPropertyName()获取数据类型不匹配参数名称
-	// getRequiredType()实际要求客户端传递的数据类型
-	@ExceptionHandler({ TypeMismatchException.class })
-	@ResponseBody
-	public String requestTypeMismatch(TypeMismatchException ex) {
-		ex.printStackTrace();
-		return retContent(-400, "参数类型不匹配,参数" + ex.getPropertyName() + "类型应该为" + ex.getRequiredType());
-
-	}
-
-	// 缺少参数异常
-	// getParameterName() 缺少的参数名称
-	@ExceptionHandler({ MissingServletRequestParameterException.class })
-	@ResponseBody
-	public String requestMissingServletRequest(MissingServletRequestParameterException ex) {
-		ex.printStackTrace();
-		return retContent(-400, "缺少必要参数,参数名称为" + ex.getParameterName());
-
-	}
-
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/postjson.do", method = RequestMethod.POST)
-	public String getJson(HttpServletRequest request) {
-		String userName = request.getParameter("user_no");
-		String password = request.getParameter("password");
-		System.out.print(userName + password);
-		return "index";
-	}
-=======
 	
-	/**
-     * 发送短信
-     * @param username 用户名
-     * @param type register/backpwd
-     * @return
-     * status: 0 2010 2029 1011 1010 1006 1020 
-     */
-    @RequestMapping(value="/sendmessage.do",method=RequestMethod.POST,produces="application/json")
-    public String sendMessage(@RequestParam(value="username",required=true)String username,
-            @RequestParam(value="forType",required=true)String forType,
-            @RequestParam(value="userType",required=true)String userType){
-        if(null == username || "".equals(username)){
-            return retContent(2010, null);
-        }
-        if(!"user".equals(userType) && !"merchant".equals(userType)){
-            return retContent(2029, null);
-        }
-        if(!"register".equals(forType) && !"backpwd".equals(forType)){
-            return retContent(2029, null);
-        }
-        return userService.sendMessage(username, forType, userType);
-    }
-	
-  //参数类型不匹配
-  //getPropertyName()获取数据类型不匹配参数名称
-  //getRequiredType()实际要求客户端传递的数据类型
-  @ExceptionHandler({TypeMismatchException.class})
-  @ResponseBody
-  public String requestTypeMismatch(TypeMismatchException ex){
-      ex.printStackTrace();
-      return retContent(-400, "参数类型不匹配,参数" + ex.getPropertyName() + "类型应该为" + ex.getRequiredType());
+	@RequestMapping(value = "/useruanager.do", method = RequestMethod.POST)
+	public ModelAndView userManager(@ModelAttribute(value = "user") User user){
+		List<User> userlist = userService.getAllUser(user);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("", userlist);
+		return modelAndView;
+	}
 
-  }
-  //缺少参数异常
-  //getParameterName() 缺少的参数名称
-  @ExceptionHandler({MissingServletRequestParameterException.class})
-  @ResponseBody
-  public String requestMissingServletRequest(MissingServletRequestParameterException ex){
-      ex.printStackTrace();
-      return retContent(-400, "缺少必要参数,参数名称为" + ex.getParameterName());
-
-  }
->>>>>>> fd2cc2cd9a5d51f52faf3fce31f69a4d97a461ab
 }

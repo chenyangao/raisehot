@@ -8,9 +8,12 @@
  */
 package com.hottop.raisehot.dao;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 
 import com.hottop.raisehot.model.User;
+import com.sun.tools.javac.util.List;
 
 /**
  * @ClassName: UserDAO
@@ -26,7 +29,62 @@ public interface UserDAO {
 	 * @Title: insertUser   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
 	 * @param user
+	 * @return TODO
+	 */  
+	public Long insertUser(User user);
+
+	/**   
+	 * @Title: getUser   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param phoneNumber
+	 * @param pasword
 	 * @return
 	 */  
-	public int insertUser(User user);
+	
+	public User getUser(String phoneNumber, String pasword);
+
+	/**   
+	 * @Title: recordMessage   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param phoneNumber
+	 */  
+	
+	public void recordMessage(String phoneNumber);
+
+	/**   
+	 * @Title: userModifyStatus   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param map
+	 * @return
+	 */  
+	
+	public User userModifyStatus(Map map);
+
+	/**   
+	 * @Title: getUserLogin   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param phoneNumber
+	 * @param pasword
+	 * @return
+	 */  
+	
+	public User getUserLogin(String phoneNumber, String pasword);
+
+	/**   
+	 * @Title: getUserById   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param id
+	 * @return
+	 */  
+	
+	public User getUserById(Long id);
+
+	/**   
+	 * @Title: getAllUser   
+	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @param user
+	 * @return
+	 */  
+	
+	public List<User> getAllUser(User user);
 }

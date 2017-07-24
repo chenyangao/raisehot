@@ -8,6 +8,8 @@
  */
 package com.hottop.raisehot.model;
 
+import java.util.Date;
+
 /**
  * @ClassName: User
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -31,15 +33,24 @@ public class User extends BaseModel {
 	/**  
 	 * @Fields nickname : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	private String nickname;
+	private String nickName;
 	/**  
 	 * @Fields password : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private String password;
+ 
+	/**  
+	 * @Fields wechatId : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String wechatId;
 	/**  
 	 * @Fields isNumber : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private String isNumber;
+	/**  
+	 * @Fields isName : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String isName;
 	/**  
 	 * @Fields qq : TODO(用一句话描述这个变量表示什么)  
 	 */  
@@ -47,12 +58,95 @@ public class User extends BaseModel {
 	/**  
 	 * @Fields locus : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	private String locus;
+	private String province;
+	
 	/**  
 	 * @Fields goldCoins : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private Integer goldCoins;
+	/**  
+	 * @Fields address : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String address;
 	
+
+	
+
+	/**  
+	 * @Title: User  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 * @param phoneNumber
+	 * @param userType
+	 * @param nickName
+	 * @param wechatId
+	 * @param isNumber
+	 * @param isName
+	 * @param qq
+	 * @param province
+	 * @param goldCoins
+	 * @param address
+	 */
+	public User(String phoneNumber, String userType, String nickName, String wechatId, String isNumber, String isName,
+			String qq, String province, Integer goldCoins, String address) {
+		super();
+		this.phoneNumber = phoneNumber;
+		this.userType = userType;
+		this.nickName = nickName;
+		this.wechatId = wechatId;
+		this.isNumber = isNumber;
+		this.isName = isName;
+		this.qq = qq;
+		this.province = province;
+		this.goldCoins = goldCoins;
+		this.address = address;
+	}
+
+	/**  
+	 * @Title: User  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 * @param id
+	 * @param status
+	 * @param creator
+	 * @param modifier
+	 * @param createTime
+	 * @param updateTime
+	 * @param startDate
+	 * @param endDate
+	 * @param version
+	 * @param remark
+	 * @param phoneNumber
+	 * @param userType
+	 * @param nickName
+	 * @param wechatId
+	 * @param isNumber
+	 * @param isName
+	 * @param qq
+	 * @param province
+	 * @param goldCoins
+	 */
+	public User(Long id, String status, User creator, User modifier, Date createTime, Date updateTime, Date startDate,
+			Date endDate, int version, String remark, String phoneNumber, String userType, String nickName,
+			String wechatId, String isNumber, String isName, String qq, String province, Integer goldCoins) {
+		super(id, status, creator, modifier, createTime, updateTime, startDate, endDate, version, remark);
+		this.phoneNumber = phoneNumber;
+		this.userType = userType;
+		this.nickName = nickName;
+		this.wechatId = wechatId;
+		this.isNumber = isNumber;
+		this.isName = isName;
+		this.qq = qq;
+		this.province = province;
+		this.goldCoins = goldCoins;
+	}
+
+	/**  
+	 * @Title: User  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 */
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the phoneNumber
 	 */
@@ -82,17 +176,17 @@ public class User extends BaseModel {
 	}
 
 	/**
-	 * @return the nickname
+	 * @return the nickName
 	 */
-	public String getNickname() {
-		return nickname;
+	public String getNickName() {
+		return nickName;
 	}
 
 	/**
-	 * @param nickname the nickname to set
+	 * @param nickName the nickName to set
 	 */
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
 	/**
@@ -110,6 +204,20 @@ public class User extends BaseModel {
 	}
 
 	/**
+	 * @return the wechatId
+	 */
+	public String getWechatId() {
+		return wechatId;
+	}
+
+	/**
+	 * @param wechatId the wechatId to set
+	 */
+	public void setWechatId(String wechatId) {
+		this.wechatId = wechatId;
+	}
+
+	/**
 	 * @return the isNumber
 	 */
 	public String getIsNumber() {
@@ -121,6 +229,20 @@ public class User extends BaseModel {
 	 */
 	public void setIsNumber(String isNumber) {
 		this.isNumber = isNumber;
+	}
+
+	/**
+	 * @return the isName
+	 */
+	public String getIsName() {
+		return isName;
+	}
+
+	/**
+	 * @param isName the isName to set
+	 */
+	public void setIsName(String isName) {
+		this.isName = isName;
 	}
 
 	/**
@@ -138,17 +260,17 @@ public class User extends BaseModel {
 	}
 
 	/**
-	 * @return the locus
+	 * @return the province
 	 */
-	public String getLocus() {
-		return locus;
+	public String getProvince() {
+		return province;
 	}
 
 	/**
-	 * @param locus the locus to set
+	 * @param province the province to set
 	 */
-	public void setLocus(String locus) {
-		this.locus = locus;
+	public void setProvince(String province) {
+		this.province = province;
 	}
 
 	/**
@@ -166,10 +288,17 @@ public class User extends BaseModel {
 	}
 
 	/**
-	 * @return the serialversionuid
+	 * @return the address
 	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	/**   
@@ -200,14 +329,16 @@ public class User extends BaseModel {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 	/* (non-Javadoc)
-	 * @see com.hottop.raisehot.model.BaseModel#toString()
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "User [phoneNumber=" + phoneNumber + ", userType=" + userType + ", nickName=" + nickName + ", password="
+				+ password + ", wechatId=" + wechatId + ", isNumber=" + isNumber + ", isName=" + isName + ", qq=" + qq
+				+ ", province=" + province + ", goldCoins=" + goldCoins + ", address=" + address + ", id=" + id
+				+ ", status=" + status + ", creator=" + creator + ", modifier=" + modifier + ", createTime="
+				+ createTime + ", updateTime=" + updateTime + ", startDate=" + startDate + ", endDate=" + endDate
+				+ ", version=" + version + ", remark=" + remark + "]";
 	}
-
 }

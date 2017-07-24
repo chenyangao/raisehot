@@ -24,7 +24,49 @@ public class WorkTasks extends BaseModel {
 	private User orderUser ;
 	
 	
-    /**   
+    /**
+	 * @return the taskStatus
+	 */
+	public TaskStatus getTaskStatus() {
+		return taskStatus;
+	}
+
+	/**
+	 * @param taskStatus the taskStatus to set
+	 */
+	public void setTaskStatus(TaskStatus taskStatus) {
+		this.taskStatus = taskStatus;
+	}
+
+	/**
+	 * @return the orderUser
+	 */
+	public User getOrderUser() {
+		return orderUser;
+	}
+
+	/**
+	 * @param orderUser the orderUser to set
+	 */
+	public void setOrderUser(User orderUser) {
+		this.orderUser = orderUser;
+	}
+
+	/**
+	 * @return the workOrder
+	 */
+	public WorkOrder getWorkOrder() {
+		return workOrder;
+	}
+
+	/**
+	 * @param workOrder the workOrder to set
+	 */
+	public void setWorkOrder(WorkOrder workOrder) {
+		this.workOrder = workOrder;
+	}
+
+	/**   
 	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private static final long serialVersionUID = 7747898440138633287L;

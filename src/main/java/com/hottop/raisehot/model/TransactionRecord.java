@@ -29,6 +29,35 @@ public class TransactionRecord extends BaseModel {
 	 */  
 	private Integer glodCoinsSmount ;
 
+	
+	/**
+	 * @return the transactionType
+	 */
+	public TransactionType getTransactionType() {
+		return transactionType;
+	}
+
+	/**
+	 * @param transactionType the transactionType to set
+	 */
+	public void setTransactionType(TransactionType transactionType) {
+		this.transactionType = transactionType;
+	}
+
+	/**
+	 * @return the glodCoinsSmount
+	 */
+	public Integer getGlodCoinsSmount() {
+		return glodCoinsSmount;
+	}
+
+	/**
+	 * @param glodCoinsSmount the glodCoinsSmount to set
+	 */
+	public void setGlodCoinsSmount(Integer glodCoinsSmount) {
+		this.glodCoinsSmount = glodCoinsSmount;
+	}
+
 	/**  
 	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)  
 	 */  

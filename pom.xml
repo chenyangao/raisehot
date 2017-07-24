@@ -11,13 +11,14 @@
 		<java-version>1.6</java-version>
 		<org.springframework-version>3.2.18.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
-		<org.slf4j-version>1.6.6</org.slf4j-version>
+		<org.slf4j-version>1.7.21</org.slf4j-version>
 		<!-- mybatis版本号 -->
 		<mybatis.version>3.2.4</mybatis.version>
-		<!-- log4j日志文件管理包版本 -->
- 		<log4j.version>1.2.9</log4j.version>
 		<spring.version>3.2.18.RELEASE</spring.version>
+		<logback.version>1.2.3</logback.version>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
@@ -139,43 +140,24 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>${org.slf4j-version}</version>
 		</dependency>
+		
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
 		</dependency>
+		<!--其中logback-ext-spring这个jar包是为了和spring一起使用的。-->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.mail</groupId>
-					<artifactId>mail</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.jms</groupId>
-					<artifactId>jms</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jdmk</groupId>
-					<artifactId>jmxtools</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jmx</groupId>
-					<artifactId>jmxri</artifactId>
-				</exclusion>
-			</exclusions>
-			<scope>runtime</scope>
+			<groupId>org.logback-extensions</groupId>
+			<artifactId>logback-ext-spring</artifactId>
+			<version>0.1.4</version>
 		</dependency>
-
+		
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
@@ -239,6 +221,31 @@
     </dependency>	     
 		     
 	</dependencies>
+	
+	<profiles>
+		<!-- 开发环境 -->
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<!-- 以下配置properties中用到一些变量，如数据库连接参数、日志打印等 -->
+			<properties>
+				<!-- DB Resource 
+				<jdbc_driverClassName>com.mysql.jdbc.Driver</jdbc_driverClassName>
+				<jdbc_url>jdbc:mysql://localhost:3306/learning</jdbc_url>
+				<jdbc_username>root</jdbc_username>
+				<jdbc_password>christmas258@</jdbc_password>
+                -->
+                
+				<log.moduleName>raisehot-project</log.moduleName>
+				<log.base>logs</log.base>
+				<log.other.level>DEBUG</log.other.level>
+				<log.root.level>DEBUG</log.root.level>
+				<log.stdout.ref><![CDATA[<appender-ref ref="stdout" />]]></log.stdout.ref>
+			</properties>
+		</profile>
+	</profiles>
 	
     <build>
         <plugins>

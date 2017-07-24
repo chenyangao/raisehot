@@ -20,8 +20,6 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.hottop.raisehot.controller.UserController;
-
 /**
  * @ClassName: TestController
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -43,7 +41,7 @@ public class TestController {
     //private LoginController loginController ;  
     
     @Autowired
-    private UserController userController ;
+    private HomeController homeController ;
 
 
       
@@ -53,7 +51,7 @@ public class TestController {
         request = new MockHttpServletRequest();      
         request.setCharacterEncoding("UTF-8");      
         response = new MockHttpServletResponse(); 
-        userController  = (UserController) AppUtil.getBean("userController");
+        homeController  = (HomeController) AppUtil.getBean("userController");
     }         
     /** 
      *  
@@ -62,12 +60,12 @@ public class TestController {
      */  
     @Test  
     public void testLogin() {   
-        userController  = (UserController) AppUtil.getBean("userController");
+    	homeController  = (HomeController) AppUtil.getBean("userController");
         try {  
         	request.setParameter("userName", "admin");
         	request.setParameter("password", "2");
             TypeMismatchException ex = null;
-			assertEquals("index",userController.requestTypeMismatch(ex)) ;  
+			assertEquals("index",homeController.requestTypeMismatch(ex)) ;  
         } catch (Exception e) {  
             e.printStackTrace();  
         }  

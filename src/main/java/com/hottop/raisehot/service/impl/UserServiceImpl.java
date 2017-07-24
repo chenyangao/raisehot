@@ -8,6 +8,12 @@
  */
 package com.hottop.raisehot.service.impl;
 
+import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,69 +21,86 @@ import org.springframework.transaction.annotation.Transactional;
 import com.hottop.raisehot.dao.UserDAO;
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.service.UserService;
+import com.sun.jdi.Method;
+import com.sun.tools.javac.util.List;
 
 /**
  * @ClassName: UserServiceImpl
  * @Description: TODO(这里用一句话描述这个类的作用)
  * @author cyg(chenyangao@lakala.com)
  * @date 2017年7月1日下午9:05:25
- *
- * 
  */
 @Transactional
 @Service("userService")
 public class UserServiceImpl implements UserService {
-	 @Autowired   //此处自动注入userService
-	private UserDAO userDao;
+	
+	protected final Logger       logger = LoggerFactory.getLogger(this.getClass());
 
-	/* (non-Javadoc)
-	 * @see com.hottop.raisehot.service.UserService#insertUser(com.hottop.raisehot.service.User)
-	 */
-	@Override
-	public int insertUser(User user) {
-		return userDao.insertUser(user);
-	}
+	 /**  
+	 * @Fields userDao : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	@Autowired   //此处自动注入userDao
+	private UserDAO userDao;
 
 	/* (non-Javadoc)
 	 * @see com.hottop.raisehot.service.UserService#userRegister(com.hottop.raisehot.model.User)
 	 */
 	@Override
-	public void userRegister(User user) {
-		// TODO Auto-generated method stub
-		
+	public User userRegister(User user) {
+		//FIXME
+		Long id = userDao.insertUser(user);
+		logger.info(MessageFormat.format("用户信息:{0} ",user.toString()));
+		long idre = user.getId();
+		logger.info(MessageFormat.format("ID:{0} ",idre));
+		User userRs = userDao.getUserById(idre);
+	    logger.info(MessageFormat.format("注册完成的用户信息:{0} ",userRs.toString()));
+		return userRs;
 	}
 
 	/* (non-Javadoc)
 	 * @see com.hottop.raisehot.service.UserService#sendMessage(java.lang.String, java.lang.String, java.lang.String)
 	 */
 	@Override
-<<<<<<< HEAD
-	public String sendMessage(String username) {
-		// TODO Auto-generated method stub
+	public String sendMessage(String phoneNumber) {
+		//userDao.recordMessage(phoneNumber);
 		return null;
 	}
-
-	/* (non-Javadoc)
-	 * @see com.hottop.raisehot.service.UserService#login(com.hottop.raisehot.model.User)
-	 */
-	@Override
-	public void login(User user) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	/* (non-Javadoc)
 	 * @see com.hottop.raisehot.service.UserService#logout(java.lang.String)
 	 */
 	@Override
-	public void logout(String id) {
-		// TODO Auto-generated method stub
-		
+	public void userOpt(String id, String opt) {
+		Map<String, String> map = new HashMap<String, String>();  
+		 map.put("id", id);  
+		 map.put("opt", opt);  
+		 userDao.userModifyStatus(map);
 	}
-=======
-	public String sendMessage(String username, String forType, String userType) {
-		// TODO Auto-generated method stub
-		return null;
+
+	/* (non-Javadoc)
+	 * @see com.hottop.raisehot.service.UserService#login(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public User login(String phoneNumber, String pasword) {
+		User userReg = userDao.getUserLogin(phoneNumber,pasword);
+		return userReg;
 	}
->>>>>>> fd2cc2cd9a5d51f52faf3fce31f69a4d97a461ab
+
+	/* (non-Javadoc)
+	 * @see com.hottop.raisehot.service.UserService#preview(java.lang.String)
+	 */
+	@Override
+	public User preview(Long id) {
+		User user = userDao.getUserById(id);
+		return user;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hottop.raisehot.service.UserService#getAllUser(com.hottop.raisehot.model.User)
+	 */
+	@Override
+	public List<User> getAllUser(User user) {
+		List<User> userList = userDao.getAllUser(user);
+		return userList;
+	}
+
 }

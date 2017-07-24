@@ -13,7 +13,7 @@ import java.util.Map;
 
 //格式化返回客户端数据格式（json）
 public class ReturnFormat {
-	private static Map<String, String> messageMap = new HashMap();
+	private static Map<String, String> messageMap = new HashMap<String, String>();
 	// 初始化状态码与文字说明
 	static {
 		messageMap.put("0", "");
