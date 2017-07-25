@@ -8,17 +8,16 @@
  */
 package com.hottop.raisehot;
 
-import java.text.MessageFormat;
 
-import org.apache.taglibs.standard.lang.jstl.test.beans.PublicInterface2;
+import java.text.MessageFormat;
+import java.util.List;
+
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.util.SnowflakeIdWorker;
-import com.sun.jdi.Method;
-import com.sun.tools.javac.util.List;
 
 /**
  * @ClassName: UserTest
@@ -32,6 +31,8 @@ public class UserServiceTest extends BaseService{
 	protected final Logger       logger = LoggerFactory.getLogger(this.getClass());
 	@Test
 	public void addUser() {
+		logger.debug("addUser() - start");
+
 		User user = new User();
         SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
 		user.setId(idWorker.nextId());
@@ -59,28 +60,45 @@ public class UserServiceTest extends BaseService{
 		
 		user.setStartDate(new java.util.Date());
 		user.setEndDate(new java.util.Date());
-		
-		logger.info(MessageFormat.format("用户信息:{0} ",user.toString()));
+		User userRs = userService.userRegister(user);
+		logger.info(MessageFormat.format("用户信息:{0} ",userRs.toString()));
 
+		logger.debug("addUser() - end");
+	}
+	@Test
+	public void userOpt() {
+		logger.info("userOpt() - start");
+		userService.userOpt(339444585916792832L, "2");
+		logger.info("userOpt() - end");
 	}
 	@Test
 	public void sendMessage(){
+		logger.debug("sendMessage() - start");
 		userService.sendMessage("18516029987");
+		logger.debug("sendMessage() - end");
 	}
 	@Test
 	public void login(){
+		logger.debug("login() - start");
 		User user = userService.login("18516029987", "eagle8711");
-		logger.info(MessageFormat.format("用户信息:{0} ",user.toString()));
-	}
+		if(user!=null){
+			logger.info(MessageFormat.format("用户信息:{0} ",user.toString())); 
+		}
+		}
 	@Test
 	public void preview(){
+		logger.debug("getAllUser() - start");
 		User user = userService.preview(1500830830919L);
-		logger.info(MessageFormat.format("用户信息:{0} ",user.toString()));
+		if(user!=null){
+			logger.info(MessageFormat.format("用户信息:{0} ",user.toString()));
+		}
 	}
 	@Test
 	public void getAllUser(){
-		User user = null ;
+		User user = new User() ;
 		List<User> userList = userService.getAllUser(user );
-		logger.info(MessageFormat.format("用户信息:{0} ",user.toString()));
+		for (int i = 0; i < userList.size(); i++) {
+			logger.info(MessageFormat.format("用户信息:{0} ",userList.get(i).toString()));
+		}
 	}
 }

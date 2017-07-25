@@ -8,13 +8,13 @@
  */
 package com.hottop.raisehot.dao;
 
+import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.hottop.raisehot.model.User;
-import com.sun.tools.javac.util.List;
-
 /**
  * @ClassName: UserDAO
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -54,21 +54,21 @@ public interface UserDAO {
 	/**   
 	 * @Title: userModifyStatus   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
-	 * @param map
+	 * @param id
+	 * @param opt TODO
 	 * @return
 	 */  
 	
-	public User userModifyStatus(Map map);
+	public int userModifyStatus(@Param("id")Long id,@Param("opt")String opt);
 
 	/**   
 	 * @Title: getUserLogin   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
-	 * @param phoneNumber
-	 * @param pasword
+	 * @param map TODO
 	 * @return
 	 */  
 	
-	public User getUserLogin(String phoneNumber, String pasword);
+	public User getUserLogin(Map map);
 
 	/**   
 	 * @Title: getUserById   

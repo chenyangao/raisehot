@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration 
-PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-config.dtd">
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-        <!-- 命名空间 -->
+        <!-- 命名空间 如果有很多种类型的话，每次都得把类型的全路径写上，感觉就很费事。 所以就可以用mybatis提供的typeAliases来进行别名配置。 -->
     <typeAliases>
          <typeAlias alias="User" type="com.hottop.raisehot.model.User"/> 
     </typeAliases>
@@ -11,4 +10,5 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <!-- 映射map -->
     <mappers>
      </mappers>
+     
 </configuration>

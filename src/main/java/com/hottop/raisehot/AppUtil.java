@@ -22,16 +22,14 @@ import org.springframework.context.ApplicationContextAware;
  */
 public class AppUtil implements ApplicationContextAware {
 	private static ApplicationContext appContext;
-	/* (non-Javadoc)
-	 * @see org.springframework.context.ApplicationContextAware#setApplicationContext(org.springframework.context.ApplicationContext)
-	 */
+
 	@Override
 	public void setApplicationContext(ApplicationContext paramApplicationContext) throws BeansException {
-		// TODO Auto-generated method stub
-		appContext=paramApplicationContext;
+		appContext = paramApplicationContext;
 	}
-	public static Object getBean(String paramString)
-	   {
-	     return appContext.getBean(paramString);
-	   }
+
+	public static Object getBean(String paramString) {
+		return appContext.getBean(paramString);
+	}
+	
 }

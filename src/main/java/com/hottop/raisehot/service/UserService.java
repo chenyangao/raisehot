@@ -8,8 +8,9 @@
  */
 package com.hottop.raisehot.service;
 
+import java.util.List;
+
 import com.hottop.raisehot.model.User;
-import com.sun.tools.javac.util.List;
 
 /**
  * @ClassName: UserService
@@ -55,7 +56,7 @@ public interface UserService {
 	 * @param opt TODO
 	 */  
 	
-	public void userOpt(String id, String opt);
+	public void userOpt(Long id, String opt);
 
 	/**   
 	 * @Title: preview   

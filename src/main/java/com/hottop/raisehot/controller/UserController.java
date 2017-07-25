@@ -9,6 +9,7 @@
 package com.hottop.raisehot.controller;
 
 import java.text.MessageFormat;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.service.UserService;
-import com.sun.jdi.Method;
-import com.sun.tools.javac.util.List;
-
+ 
 /**
  * @ClassName: UserController
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -102,7 +101,7 @@ public class UserController extends BaseController {
 			@RequestParam(value = "opt", required = true) String opt) {
 		logger.info(MessageFormat.format("修改用户状态:{0},操作:{1} ",id,opt));
 		logger.info("用户号{}，操作{}", id, opt);
-		userService.userOpt(id, opt);
+		userService.userOpt(Long.valueOf(id), opt);
 		return id;
 	}
 

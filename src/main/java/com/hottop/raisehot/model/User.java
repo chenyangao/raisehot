@@ -10,6 +10,8 @@ package com.hottop.raisehot.model;
 
 import java.util.Date;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @ClassName: User
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -17,6 +19,7 @@ import java.util.Date;
  * @date 2017年7月1日下午8:55:50
  * 
  */
+@Alias("user")
 public class User extends BaseModel {
 	/**  
 	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)  

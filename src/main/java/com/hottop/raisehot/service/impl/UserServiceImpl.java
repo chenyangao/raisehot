@@ -8,10 +8,13 @@
  */
 package com.hottop.raisehot.service.impl;
 
+
 import java.text.MessageFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.scripting.xmltags.WhereSqlNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.hottop.raisehot.dao.UserDAO;
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.service.UserService;
-import com.sun.jdi.Method;
-import com.sun.tools.javac.util.List;
 
 /**
  * @ClassName: UserServiceImpl
@@ -69,11 +70,11 @@ public class UserServiceImpl implements UserService {
 	 * @see com.hottop.raisehot.service.UserService#logout(java.lang.String)
 	 */
 	@Override
-	public void userOpt(String id, String opt) {
-		Map<String, String> map = new HashMap<String, String>();  
-		 map.put("id", id);  
-		 map.put("opt", opt);  
-		 userDao.userModifyStatus(map);
+	public void userOpt(Long id, String opt) {
+		logger.info("userOpt(Long, String) - start");
+	   int i = userDao.userModifyStatus(id, opt);
+	   logger.info("userOpt(Long, String) - end" + i);
+	   
 	}
 
 	/* (non-Javadoc)
@@ -81,7 +82,11 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public User login(String phoneNumber, String pasword) {
-		User userReg = userDao.getUserLogin(phoneNumber,pasword);
+		
+		Map<String, String> map = new HashMap<String, String>();  
+		 map.put("phoneNumber", phoneNumber);  
+		 map.put("password", pasword);  
+		User userReg = userDao.getUserLogin(map);
 		return userReg;
 	}
 

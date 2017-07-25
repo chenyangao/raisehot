@@ -34,8 +34,7 @@ public class BaseService {
 	public void before() {
 		@SuppressWarnings("resource")
 		ApplicationContext context = new ClassPathXmlApplicationContext(
-				new String[] { "classpath:conf/spring.xml",
-						"classpath:conf/spring-mybatis.xml"});
+				new String[] { "classpath:conf/spring.xml", "classpath:conf/spring-mybatis.xml"});
 		userService = (UserService) context.getBean("userService");
 	}
 }
