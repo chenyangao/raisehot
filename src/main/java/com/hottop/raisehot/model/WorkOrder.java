@@ -24,18 +24,63 @@ public class WorkOrder extends BaseModel {
 	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private static final long serialVersionUID = 4439015418492646288L;
+	/**  
+	 * @Fields jobType : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String jobType;
+	/**  
+	 * @Fields goldCoinSum : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private Integer goldCoinSum;
+	/**  
+	 * @Fields taskCount : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private Integer taskCount;
+	/**  
+	 * @Fields linkType : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private String linkType;
-	private List<String> userLevel;
+	/**  
+	 * @Fields userLevel : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String userLevel;
+	/**  
+	 * @Fields taskTime : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private String taskTime;
+	/**  
+	 * @Fields comparativeOpt : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private String comparativeOpt;
+	/**  
+	 * @Fields favoritesOpt : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private String favoritesOpt;
+	/**  
+	 * @Fields chatOpt : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private String chatOpt;
+	/**  
+	 * @Fields browseTime : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private String browseTime;
+	/**  
+	 * @Fields otherRequirement : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private String otherRequirement;
+	/**  
+	 * @Fields advancePrincipal : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private Integer advancePrincipal;
+	/**  
+	 * @Fields additionalPrincipal : TODO(用一句话描述这个变量表示什么)  
+	 */  
 	private Integer additionalPrincipal;
+	
+	/**  
+	 * @Fields workTasks : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private List<WorkTask> workTasks = new ArrayList<WorkTask>();
 
 	/**
 	 * @return the goldCoinSum
@@ -78,18 +123,17 @@ public class WorkOrder extends BaseModel {
 	public void setLinkType(String linkType) {
 		this.linkType = linkType;
 	}
-
 	/**
 	 * @return the userLevel
 	 */
-	public List<String> getUserLevel() {
+	public String getUserLevel() {
 		return userLevel;
 	}
 
 	/**
 	 * @param userLevel the userLevel to set
 	 */
-	public void setUserLevel(List<String> userLevel) {
+	public void setUserLevel(String userLevel) {
 		this.userLevel = userLevel;
 	}
 
@@ -205,21 +249,6 @@ public class WorkOrder extends BaseModel {
 		this.additionalPrincipal = additionalPrincipal;
 	}
 
-	/**
-	 * @return the workTasks
-	 */
-	public List<WorkTasks> getWorkTasks() {
-		return workTasks;
-	}
-
-	/**
-	 * @param workTasks the workTasks to set
-	 */
-	public void setWorkTasks(List<WorkTasks> workTasks) {
-		this.workTasks = workTasks;
-	}
-
-	private List<WorkTasks> workTasks = new ArrayList<WorkTasks>();
 
 	/*
 	 * (non-Javadoc)
@@ -252,6 +281,34 @@ public class WorkOrder extends BaseModel {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	/**
+	 * @return the jobType
+	 */
+	public String getJobType() {
+		return jobType;
+	}
+
+	/**
+	 * @param jobType the jobType to set
+	 */
+	public void setJobType(String jobType) {
+		this.jobType = jobType;
+	}
+
+	/**
+	 * @return the workTasks
+	 */
+	public List<WorkTask> getWorkTasks() {
+		return workTasks;
+	}
+
+	/**
+	 * @param workTasks the workTasks to set
+	 */
+	public void setWorkTasks(List<WorkTask> workTasks) {
+		this.workTasks = workTasks;
 	}
 
 }

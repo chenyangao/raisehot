@@ -1,5 +1,5 @@
 /**   
- * @Title: UserDAO.java
+   * @Title: UserDAO.java
  * @Package:com.hottop.raisehot.dao2017年7月1日
  * @Description: TODO(用一句话描述该文件做什么) 
  * @author cyg(chenyangao@lakala.com)   
@@ -53,7 +53,7 @@ public interface UserDAO {
 
 	/**   
 	 * @Title: userModifyStatus   
-	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @Description: Mybatis传多个参数 这种方法比较好，能让开发者看到dao层方法就知道该传什么样的参数，比较直观，推荐用此种方案。
 	 * @param id
 	 * @param opt TODO
 	 * @return
@@ -68,7 +68,7 @@ public interface UserDAO {
 	 * @return
 	 */  
 	
-	public User getUserLogin(Map map);
+	public User getUserLogin(Map<String, String> map);
 
 	/**   
 	 * @Title: getUserById   
@@ -77,7 +77,7 @@ public interface UserDAO {
 	 * @return
 	 */  
 	
-	public User getUserById(Long id);
+	public User getUserById(String id);
 
 	/**   
 	 * @Title: getAllUser   

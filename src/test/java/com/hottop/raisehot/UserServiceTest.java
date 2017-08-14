@@ -35,7 +35,8 @@ public class UserServiceTest extends BaseService{
 
 		User user = new User();
         SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
-		user.setId(idWorker.nextId());
+		String id = String.valueOf(idWorker.nextId());
+		user.setId(id);
 		user.setPhoneNumber("18516029987");
 		user.setUserType("1");
 		user.setNickName("火星人漂流");
@@ -46,12 +47,11 @@ public class UserServiceTest extends BaseService{
 		user.setQq("160212499");
 		user.setProvince("湖南");
 		user.setGoldCoins(0);
-		user.setStatus("01");
 		
 		User creator = new User();
-		creator.setId(System.currentTimeMillis());
+		creator.setId(id);
 		User modifier = new User();
-		modifier.setId(System.currentTimeMillis());
+		modifier.setId(id);
 		user.setCreator(creator);
 		user.setModifier(modifier);
 		
@@ -88,7 +88,7 @@ public class UserServiceTest extends BaseService{
 	@Test
 	public void preview(){
 		logger.debug("getAllUser() - start");
-		User user = userService.preview(1500830830919L);
+		User user = userService.preview("1500830830919");
 		if(user!=null){
 			logger.info(MessageFormat.format("用户信息:{0} ",user.toString()));
 		}

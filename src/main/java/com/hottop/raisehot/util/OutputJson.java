@@ -19,7 +19,8 @@ package com.hottop.raisehot.util;
 
 import java.io.Serializable;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.druid.support.json.JSONUtils;
+ 
 
 public class OutputJson implements Serializable{
 
@@ -61,6 +62,6 @@ public class OutputJson implements Serializable{
         if(null == this.data){
             this.setData(new Object());
         }
-        return JSON.toJSONString(this);
+        return JSONUtils.toJSONString(this);
     }
 }

@@ -11,7 +11,9 @@ package com.hottop.raisehot.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import sun.tools.tree.NewArrayExpression;
+import org.codehaus.jackson.annotate.JsonValue;
+
+import com.hottop.raisehot.model.enumvalue.Status;
 
 /**
  * @ClassName: BaseModel
@@ -26,12 +28,12 @@ public abstract class BaseModel implements Serializable{
     /**  
      * @Fields id : 标识 
      */  
-    protected Long            id;
-
+    protected String id;
+ 
     /**  
-     * @Fields status :记录的状态  
+     * @Fields status : TODO(用一句话描述这个变量表示什么)  
      */  
-    protected String          status;
+    protected Status status;
 
     /**  
      * @Fields creator :  创建人 
@@ -88,7 +90,7 @@ public abstract class BaseModel implements Serializable{
 	 * @param version
 	 * @param remark
 	 */
-	public BaseModel(Long id, String status, User creator, User modifier, Date createTime, Date updateTime,
+	public BaseModel(String id, Status status, User creator, User modifier, Date createTime, Date updateTime,
 			Date startDate, Date endDate, int version, String remark) {
 		super();
 		this.id = id;
@@ -111,31 +113,41 @@ public abstract class BaseModel implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
+	/**  
+	 * @Title: BaseModel  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 * @param id
+	 */
+	public BaseModel(String id) {
+		super();
+		this.id = id;
+	}
+
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 	/**
 	 * @return the status
 	 */
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
 	/**
 	 * @param status the status to set
 	 */
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 

@@ -194,6 +194,11 @@
 
 	<dependency>
 		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-core-asl</artifactId>
+		<version>1.9.4</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
 		<artifactId>jackson-mapper-asl</artifactId>
 		<version>1.9.4</version>
 	</dependency>
@@ -213,13 +218,13 @@
 		<scope>test</scope>
 	</dependency>  
 	
-	 <!-- Fastjson介绍 Fastjson是一个Java语言编写的JSON处理器。 -->
+	 <!-- Fastjson介绍 Fastjson是一个Java语言编写的JSON处理器。-->
 	<dependency>
     	<groupId>com.alibaba</groupId>
     	<artifactId>fastjson</artifactId>
    		<version>1.2.35</version>
     </dependency>	     
-		     
+	 	     
 	</dependencies>
 	
 	<profiles>

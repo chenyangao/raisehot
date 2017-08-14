@@ -12,6 +12,8 @@ import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 
+import com.hottop.raisehot.model.enumvalue.Status;
+
 /**
  * @ClassName: User
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -71,9 +73,6 @@ public class User extends BaseModel {
 	 * @Fields address : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private String address;
-	
-
-	
 
 	/**  
 	 * @Title: User  
@@ -127,7 +126,7 @@ public class User extends BaseModel {
 	 * @param province
 	 * @param goldCoins
 	 */
-	public User(Long id, String status, User creator, User modifier, Date createTime, Date updateTime, Date startDate,
+	public User(String id, Status status, User creator, User modifier, Date createTime, Date updateTime, Date startDate,
 			Date endDate, int version, String remark, String phoneNumber, String userType, String nickName,
 			String wechatId, String isNumber, String isName, String qq, String province, Integer goldCoins) {
 		super(id, status, creator, modifier, createTime, updateTime, startDate, endDate, version, remark);
@@ -148,6 +147,15 @@ public class User extends BaseModel {
 	 */
 	public User() {
 		// TODO Auto-generated constructor stub
+	}
+
+	/**  
+	 * @Title: User  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 * @param id
+	 */
+	public User(String id) {
+		super(id);
 	}
 
 	/**

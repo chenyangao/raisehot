@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.hottop.raisehot.dao.WorkOrderDAO">
+ 
+	<insert id="insertWorkOrder" parameterType="WorkOrder"
+	keyProperty="id">
+	INSERT INTO tb_work_order
+	(id, status, creator, modifier,
+	create_time, update_Time, start_date,
+	end_date,
+	version, remark, user_id,
+	serial_no, job_type, gold_coin_sum, link_type,
+	user_level,
+	task_time,
+	comparative_opt, favorites_opt, chat_opt, browse_time,
+	other_requirement,
+	advance_principal, additional_principal)
+	VALUES
+	(#{id}, #{status}, #{creator}, #{modifier}, #{createTime},
+	#{updateTime},
+	#{startDate}, #{endDate}, #{version}, #{remark},
+	#{userId},
+	#{serialNo},
+	#{jobType}, #{goldCoinSum}, #{linkType},
+	#{userLevel}, #{taskTime},
+	#{comparativeOpt}, #{favoritesOpt},
+	#{chatOpt}, #{browseTime},
+	#{otherRequirement},
+	#{advancePrincipal},
+	#{additionalPrincipal})
+	</insert>
+	<update id="workOrderModifyStatus">
+		UPDATE tb_work_order
+		SET
+		status = #{status}
+		WHERE id = #{id}>;
+	</update>
+
+	<select id="getAllWorkOrder" parameterType="WorkOrder" resultType="WorkOrder">
+		SELECTid`,
+   status`,
+   creator`,
+   modifier`,
+   create_time`,
+   update_Time`,
+   start_date`,
+   end_date`,
+   version`,
+   remark`,
+   user_id`,
+   serial_no`,
+   job_type`,
+   gold_coin_sum`,
+   link_type`,
+   user_level`,
+   task_time`,
+   comparative_opt`,
+   favorites_opt`,
+   chat_opt`,
+   browse_time`,
+   other_requirement`,
+   advance_principal`,
+   additional_principal`
+FROMraisehot`.`tb_work_order`;
+	</select>
+
+	<select id="getWorkOrderById" parameterType="String" resultType="WorkOrder">
+		SELECT id,
+		status,
+		user_id creator.id,
+		serial_no,
+		job_type jobType,
+		gold_coin_sum goldCoinSum,
+		link_type linkType,
+		user_level userLevel,
+		task_time taskTime,
+		comparative_opt comparativeOpt,
+		favorites_opt favoritesOpt,
+		chat_opt chatOpt,
+		browse_time browseTime,
+		other_requirement otherRequirement,
+		advance_principal advancePrincipal,
+		additional_principal additionalPrincipal
+		FROM tb_work_order
+		where id= #{id}
+	</select>
+	
+</mapper>

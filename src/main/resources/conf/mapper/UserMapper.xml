@@ -58,7 +58,7 @@
     resultType="me.gacl.domain.User"就表示将查询结果封装成一个User类的对象返回
     User类就是users表所对应的实体类
     -->
-    <select id="getUserLogin" parameterType="Map" resultType="User">
+<select id="getUserLogin" parameterType="Map" resultType="User">
 	SELECT
 	phone_number,
 	user_type,
@@ -79,6 +79,7 @@
 
 	<select id="getAllUser" parameterType="User" resultMap="userResultMap">
 		SELECT
+		id,
 		phone_number,
 		user_type,
 		password,
@@ -100,19 +101,22 @@
 		remark
 		FROM tb_user
 	</select>
-	<select id="getUserById" parameterType="Long" resultType="User">
+	
+	<select id="getUserById" parameterType="String" resultType="User">
 		SELECT
-		phone_number,
-		user_type,
-		nick_name,
-		wechat_id,
-		is_number,
-		is_name,
-		qq,
+		id,
+		phone_number phoneNumber,
+		user_type userType,
+		nick_name nickName,
+		wechat_id wechatId,
+		is_number isNumber,
+		is_name isName,
+		qq ,
 		province,
-		gold_coins,
+		gold_coins goldCoins,
 		status
 		FROM tb_user
 		where id= #{id}
 	</select>
+	
 </mapper>

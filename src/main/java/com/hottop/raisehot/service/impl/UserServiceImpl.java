@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.scripting.xmltags.WhereSqlNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hottop.raisehot.dao.UserDAO;
 import com.hottop.raisehot.model.User;
+import com.hottop.raisehot.model.enumvalue.Status;
 import com.hottop.raisehot.service.UserService;
+import com.hottop.raisehot.util.SnowflakeIdWorker;
 
 /**
  * @ClassName: UserServiceImpl
@@ -49,11 +50,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User userRegister(User user) {
 		//FIXME
-		Long id = userDao.insertUser(user);
+        SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
+		String id = String.valueOf(idWorker.nextId());
+		user.setId(id);
+		user.setCreator(new User(id));
+		user.setModifier(new User(id));
+		user.setStatus(Status.Enable);
+		userDao.insertUser(user);
 		logger.info(MessageFormat.format("用户信息:{0} ",user.toString()));
-		long idre = user.getId();
-		logger.info(MessageFormat.format("ID:{0} ",idre));
-		User userRs = userDao.getUserById(idre);
+		logger.info(MessageFormat.format("ID:{0} ",id));
+		User userRs = userDao.getUserById(id);
 	    logger.info(MessageFormat.format("注册完成的用户信息:{0} ",userRs.toString()));
 		return userRs;
 	}
@@ -94,7 +100,7 @@ public class UserServiceImpl implements UserService {
 	 * @see com.hottop.raisehot.service.UserService#preview(java.lang.String)
 	 */
 	@Override
-	public User preview(Long id) {
+	public User preview(String id) {
 		User user = userDao.getUserById(id);
 		return user;
 	}

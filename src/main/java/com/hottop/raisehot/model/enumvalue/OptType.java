@@ -1,22 +1,22 @@
 /**   
- * @Title: Status.java
- * @Package:com.hottop.raisehot.model.enumvalue2017年8月6日
+ * @Title: OptType.java
+ * @Package:com.hottop.raisehot.model.enumvalue2017年7月25日
  * @Description: TODO(用一句话描述该文件做什么) 
  * @author cyg(chenyangao@lakala.com)   
- * @date 2017年8月6日上午10:40:24 
+ * @date 2017年7月25日下午6:01:49 
  * @version V1.0   
  */
 package com.hottop.raisehot.model.enumvalue;
 
 /**
- * @ClassName: Status
+ * @ClassName: OptType
  * @Description: TODO(这里用一句话描述这个类的作用)
  * @author cyg(chenyangao@lakala.com)
- * @date 2017年8月6日上午10:40:24
+ * @date 2017年7月25日下午6:01:49
  *
  * 
  */
-public enum Status {
+public enum OptType {
 	/**  
 	 * @Fields Enable : TODO(用一句话描述这个变量表示什么)  
 	 */  
@@ -45,7 +45,7 @@ public enum Status {
 	 * @param code
 	 * @param desc
 	 */
-	private Status(String code, String desc) {
+	private OptType(String code, String desc) {
 		this.code = code;
 		this.desc = desc;
 	}
@@ -67,8 +67,8 @@ public enum Status {
     * @param code
     * @return
     */
-    public static Status getEnums(String code) {
-        for (Status enums : values()) {
+    public static OptType getEnums(String code) {
+        for (OptType enums : values()) {
             if (code.equals(enums.getCode())) {
                 return enums;
             }

@@ -65,7 +65,7 @@ public interface UserService {
 	 * @return 
 	 */  
 	
-	public User preview(Long id);
+	public User preview(String id);
 
 	/**   
 	 * @Title: getAllUser   
