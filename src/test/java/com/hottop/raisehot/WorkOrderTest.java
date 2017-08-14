@@ -8,17 +8,22 @@
  */
 package com.hottop.raisehot;
 
+import java.lang.reflect.Modifier;
 import java.text.MessageFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.model.WorkOrder;
 import com.hottop.raisehot.model.enumvalue.OptType;
+import com.hottop.raisehot.model.enumvalue.Status;
+import com.hottop.raisehot.model.enumvalue.WorkOrderStatus;
 import com.hottop.raisehot.service.WorkOrderService;
 import com.hottop.raisehot.util.SnowflakeIdWorker;
 
@@ -32,12 +37,15 @@ import com.hottop.raisehot.util.SnowflakeIdWorker;
  */
 public class WorkOrderTest extends BaseService {
 	protected final Logger       logger = LoggerFactory.getLogger(this.getClass());
-	private static WorkOrderService workOrderService;
+
+	private static User modifier;
+
 	 private static 		User creator;
 
 	@BeforeClass
 	  public static void setUp(){
-		creator = new User();
+		creator = new User("343706696922693632");
+		modifier = new User("343706696922693632");
 	  }
 	@Test
 	public void addWorkOrder() {
@@ -47,12 +55,23 @@ public class WorkOrderTest extends BaseService {
         SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
 		String id = String.valueOf(idWorker.nextId());
 		workOrder.setId(id);
+		workOrder.setWorkOrderStatus(WorkOrderStatus.Release);
+		workOrder.setJobType("01");
 		workOrder.setCreator(creator);
-		workOrder.setCreateTime(new java.util.Date());
-		workOrder.setUpdateTime(new java.util.Date());
+		workOrder.setCreateTime(new Date());
+		workOrder.setUpdateTime(new Date());
+		workOrder.setCreator(creator);
+		workOrder.setModifier(modifier);;
+		workOrder.setStartDate(new Date());
+		workOrder.setEndDate(new Date());
 		
-		workOrder.setStartDate(new java.util.Date());
-		workOrder.setEndDate(new java.util.Date());
+		workOrder.setChatOpt("1");
+		workOrder.setGoldCoinSum(20);
+		workOrder.setLinkType("1");
+		workOrder.setBrowseTime("12");
+		workOrder.setComparativeOpt("1");
+		workOrder.setFavoritesOpt("1");
+		
 		WorkOrder WorkOrderRs = workOrderService.workOrderRelease(workOrder);
 		logger.info(MessageFormat.format("用户信息:{0} ",WorkOrderRs.toString()));
 		logger.debug("addWorkOrder() - end");

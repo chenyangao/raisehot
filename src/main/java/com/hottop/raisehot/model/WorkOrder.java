@@ -11,6 +11,8 @@ package com.hottop.raisehot.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hottop.raisehot.model.enumvalue.WorkOrderStatus;
+
 /**
  * @ClassName: WorkOrder
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -24,6 +26,10 @@ public class WorkOrder extends BaseModel {
 	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private static final long serialVersionUID = 4439015418492646288L;
+	/**  
+	 * @Fields serialNo : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String serialNo;
 	/**  
 	 * @Fields jobType : TODO(用一句话描述这个变量表示什么)  
 	 */  
@@ -77,6 +83,7 @@ public class WorkOrder extends BaseModel {
 	 */  
 	private Integer additionalPrincipal;
 	
+	private WorkOrderStatus workOrderStatus ;
 	/**  
 	 * @Fields workTasks : TODO(用一句话描述这个变量表示什么)  
 	 */  
@@ -249,6 +256,32 @@ public class WorkOrder extends BaseModel {
 		this.additionalPrincipal = additionalPrincipal;
 	}
 
+	/**
+	 * @return the serialNo
+	 */
+	public String getSerialNo() {
+		return serialNo;
+	}
+
+	/**
+	 * @param serialNo the serialNo to set
+	 */
+	public void setSerialNo(String serialNo) {
+		this.serialNo = serialNo;
+	}
+	/**
+	 * @return the workOrderStatus
+	 */
+	public WorkOrderStatus getWorkOrderStatus() {
+		return workOrderStatus;
+	}
+
+	/**
+	 * @param workOrderStatus the workOrderStatus to set
+	 */
+	public void setWorkOrderStatus(WorkOrderStatus workOrderStatus) {
+		this.workOrderStatus = workOrderStatus;
+	}
 
 	/*
 	 * (non-Javadoc)

@@ -14,6 +14,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.hottop.raisehot.service.UserService;
+import com.hottop.raisehot.service.WorkOrderService;
 
 /**
  * @ClassName: BaseService
@@ -26,6 +27,8 @@ import com.hottop.raisehot.service.UserService;
 public class BaseService {
 	@Autowired
 	 UserService userService;
+	@Autowired
+	  WorkOrderService workOrderService;
 	/*
 	 * static{
 	 * PropertyConfigurator.configure("classpath:conf/log4j.properties"); }
@@ -36,5 +39,6 @@ public class BaseService {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				new String[] { "classpath:conf/spring.xml", "classpath:conf/spring-mybatis.xml"});
 		userService = (UserService) context.getBean("userService");
+		workOrderService = (WorkOrderService) context.getBean("workOrderService");
 	}
 }

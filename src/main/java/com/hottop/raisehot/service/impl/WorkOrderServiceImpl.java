@@ -11,6 +11,8 @@ package com.hottop.raisehot.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hottop.raisehot.dao.WorkOrderDAO;
 import com.hottop.raisehot.model.WorkOrder;
@@ -25,6 +27,8 @@ import com.hottop.raisehot.service.WorkOrderService;
  *
  * 
  */
+@Transactional
+@Service("workOrderService")
 public class WorkOrderServiceImpl implements WorkOrderService {
 
 	@Autowired
