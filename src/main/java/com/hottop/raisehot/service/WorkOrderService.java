@@ -12,6 +12,7 @@ import java.util.List;
 
 import com.hottop.raisehot.model.WorkOrder;
 import com.hottop.raisehot.model.enumvalue.OptType;
+import com.hottop.raisehot.model.enumvalue.WorkOrderStatus;
 
 /**
  * @ClassName: WorkOrderService
@@ -36,10 +37,10 @@ public interface WorkOrderService {
 	 * @Title: workOrderChange   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
 	 * @param id
-	 * @param optType
+	 * @param cancel
 	 */  
 	
-	void workOrderChange(String id, OptType optType);
+	void workOrderChange(String id, WorkOrderStatus cancel);
 
 	/**   
 	 * @Title: getAllWorkOrder   

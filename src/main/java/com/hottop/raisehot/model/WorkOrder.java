@@ -305,15 +305,17 @@ public class WorkOrder extends BaseModel {
 		return 0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.hottop.raisehot.model.BaseModel#toString()
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "WorkOrder [serialNo=" + serialNo + ", jobType=" + jobType + ", goldCoinSum=" + goldCoinSum
+				+ ", taskCount=" + taskCount + ", linkType=" + linkType + ", userLevel=" + userLevel + ", taskTime="
+				+ taskTime + ", comparativeOpt=" + comparativeOpt + ", favoritesOpt=" + favoritesOpt + ", chatOpt="
+				+ chatOpt + ", browseTime=" + browseTime + ", otherRequirement=" + otherRequirement
+				+ ", advancePrincipal=" + advancePrincipal + ", additionalPrincipal=" + additionalPrincipal
+				+ ", workOrderStatus=" + workOrderStatus + ", workTasks=" + workTasks + "]";
 	}
 
 	/**

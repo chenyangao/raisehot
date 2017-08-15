@@ -40,9 +40,9 @@ public class MockMvcTest extends TestBase{
     }
 	
     @Test  
-    public void testUserMockMvc() throws Exception {  
-        mockMvc.perform((get("http://localhost:8080/raisehot/user/index.do").param("userName", "admin").param("password", "123"))).andExpect(status().isOk()).andDo(print());
-    } 
+    public void testRegisterMockMvc() throws Exception {  
+        mockMvc.perform((get("http://localhost:8080/raisehot/user/register.do").param("userName", "admin").param("password", "123"))).andExpect(status().isOk()).andDo(print());
+    }
     @Test  
     public void testPostUserMockMvc() throws Exception {  
     	mockMvc.perform((post("/test").param("userName", "admin").param("password", "123"))).andExpect(status().isOk()).andDo(print());

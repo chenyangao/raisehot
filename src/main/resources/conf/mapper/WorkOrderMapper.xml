@@ -36,36 +36,37 @@
 	<update id="workOrderModifyStatus">
 		UPDATE tb_work_order
 		SET
-		status = #{workOrderStatus}
-		WHERE id = #{id}>;
+		status = #{opt}
+		WHERE id = #{id}
 	</update>
 
-	<select id="getAllWorkOrder" parameterType="WorkOrder" resultType="WorkOrder">
-		SELECTid,
-   status workOrderStatus,
-   creator,
-   modifier,
-   create_time,
-   update_Time,
-   start_date,
-   end_date,
-   version,
-   remark,
-   user_id,
-   serial_no,
-   job_type,
-   gold_coin_sum,
-   link_type,
-   user_level,
-   task_time,
-   comparative_opt,
-   favorites_opt,
-   chat_opt,
-   browse_time,
-   other_requirement,
-   advance_principal,
-   additional_principal
-FROMraisehot.tb_work_order;
+	<select id="getAllWorkOrder" parameterType="WorkOrder"
+		resultType="WorkOrder">
+		SELECT id,
+		status workOrderStatus,
+		creator,
+		modifier,
+		create_time createTime,
+		update_Time updateTime,
+		start_date startDate,
+		end_date endDate,
+		version,
+		remark,
+		user_id creator,
+		serial_no serialNo,
+		job_type jobType,
+		gold_coin_sum goldCoinSum,
+		link_type linkType,
+		user_level userLevel,
+		task_time taskTime,
+		comparative_opt comparativeOpt,
+		favorites_opt favoritesOpt,
+		chat_opt chatOpt,
+		browse_time browseTime,
+		other_requirement otherRequirement,
+		advance_principal advancePrincipal,
+		additional_principal additionalPrincipal
+		FROM tb_work_order;
 	</select>
 
 	<select id="getWorkOrderById" parameterType="String" resultType="WorkOrder">

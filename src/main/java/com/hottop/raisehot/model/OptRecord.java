@@ -19,10 +19,19 @@ import com.hottop.raisehot.model.enumvalue.OptType;
  * 
  */
 public class OptRecord extends BaseModel {
+	
+	/**  
+	 * @Fields workOrder : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	WorkOrder workOrder ;
+	/**  
+	 * @Fields workTask : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	WorkTask workTask ;
 	/**  
 	 * @Fields optType : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	OptType optType ;
+	OptType optType = OptType.Disable;
 
 	/**  
 	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)  
@@ -57,5 +66,47 @@ public class OptRecord extends BaseModel {
 		// TODO Auto-generated method stub
 
 	}
+
+	/**
+	 * @return the workOrder
+	 */
+	public WorkOrder getWorkOrder() {
+		return workOrder;
+	}
+
+	/**
+	 * @param workOrder the workOrder to set
+	 */
+	public void setWorkOrder(WorkOrder workOrder) {
+		this.workOrder = workOrder;
+	}
+
+	/**
+	 * @return the workTask
+	 */
+	public WorkTask getWorkTask() {
+		return workTask;
+	}
+
+	/**
+	 * @param workTask the workTask to set
+	 */
+	public void setWorkTask(WorkTask workTask) {
+		this.workTask = workTask;
+	}
+
+	/**
+	 * @return the optType
+	 */
+	public OptType getOptType() {
+		return optType;
+	}
+	/**
+	 * @param optType the optType to set
+	 */
+	public void setOptType(OptType optType) {
+		this.optType = optType;
+	}
+	
 
 }

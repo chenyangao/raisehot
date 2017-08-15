@@ -17,8 +17,6 @@ import com.hottop.raisehot.model.enumvalue.TaskStatus;
  * @Description: TODO(这里用一句话描述这个类的作用)
  * @author cyg(chenyangao@lakala.com)
  * @date 2017年7月8日上午12:58:15
- *
- * 
  */
 public class WorkTask extends BaseModel {
 	
@@ -26,6 +24,10 @@ public class WorkTask extends BaseModel {
 	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private static final long serialVersionUID = 7747898440138633287L;
+	/**  
+	 * @Fields serialNo : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private String serialNo;
 	/**  
 	 * @Fields workOrder : 工作单  
 	 */  
@@ -37,13 +39,27 @@ public class WorkTask extends BaseModel {
 	/**  
 	 * @Fields orderUser : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	private User orderUser ;
+	private User taskUser ;
 	
 	/**  
 	 * @Fields optRecords : 操作记录 
 	 */  
 	private List<OptRecord> optRecords ;
 	 
+	/**
+	 * @return the serialNo
+	 */
+	public String getSerialNo() {
+		return serialNo;
+	}
+
+	/**
+	 * @param serialNo the serialNo to set
+	 */
+	public void setSerialNo(String serialNo) {
+		this.serialNo = serialNo;
+	}
+
 	/**
 	 * @return the workOrder
 	 */
@@ -73,17 +89,17 @@ public class WorkTask extends BaseModel {
 	}
 
 	/**
-	 * @return the orderUser
+	 * @return the taskUser
 	 */
-	public User getOrderUser() {
-		return orderUser;
+	public User getTaskUser() {
+		return taskUser;
 	}
 
 	/**
-	 * @param orderUser the orderUser to set
+	 * @param taskUser the taskUser to set
 	 */
-	public void setOrderUser(User orderUser) {
-		this.orderUser = orderUser;
+	public void setTaskUser(User taskUser) {
+		this.taskUser = taskUser;
 	}
 
 	/**
@@ -119,12 +135,12 @@ public class WorkTask extends BaseModel {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.hottop.raisehot.model.BaseModel#toString()
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "WorkTask [serialNo=" + serialNo + ", workOrder=" + workOrder + ", taskStatus=" + taskStatus
+				+ ", taskUser=" + taskUser + ", optRecords=" + optRecords + "]";
 	}
 
 }

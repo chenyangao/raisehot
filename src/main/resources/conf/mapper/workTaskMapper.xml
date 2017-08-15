@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.hottop.raisehot.dao.WorkTaskDao">
+
+	<insert id="insertTask" parameterType="WorkTask" keyProperty="id">
+		INSERT INTO tb_work_task
+		(id,
+		status,
+		creator,
+		modifier,
+		create_time,
+		update_Time,
+		start_date,
+		end_date,
+		version,
+		remark,
+		user_id,
+		order_id,
+		serial_no)
+		VALUES
+		(#{id},
+		#{taskStatus},
+		#{creator.id},
+		#{modifier.id},
+		#{createTime},
+		#{updateTime},
+		#{startDate},
+		#{endDate},
+		#{version},
+		#{remark},
+		#{creator.id},
+		#{workOrder.id},
+		#{serialNo})
+	</insert>
+	
+	<update id="updateTask">
+		UPDATE tb_work_task
+		SET
+		status = #{taskStatus}
+		WHERE id = #{id}
+	</update>
+
+	<select id="queryTask" parameterType="WorkTask" resultType="WorkTask">
+		SELECT id,
+		status,
+		creator,
+		modifier,
+		create_time createTime,
+		update_Time updateTime,
+		start_date startDate,
+		end_date endDate,
+		version,
+		remark,
+		user_id userId,
+		order_id orderId,
+		serial_no serialNo
+		FROM tb_work_task
+	</select>
+
+	<select id="queryTaskById" parameterType="String" resultType="WorkTask">
+		SELECT id,
+		status,
+		creator,
+		modifier,
+		create_time createTime,
+		update_Time updateTime,
+		start_date startDate,
+		end_date endDate,
+		version,
+		remark,
+		user_id userId,
+		order_id orderId,
+		serial_no serialNo
+		FROM tb_work_task WHERE id = #{id}
+	</select>
+</mapper>

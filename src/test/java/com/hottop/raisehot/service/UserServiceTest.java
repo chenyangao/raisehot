@@ -6,7 +6,7 @@
  * @date 2017年7月1日下午9:11:55 
  * @version V1.0   
  */
-package com.hottop.raisehot;
+package com.hottop.raisehot.service;
 
 
 import java.text.MessageFormat;

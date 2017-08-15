@@ -6,6 +6,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
     <typeAliases>
          <typeAlias alias="User" type="com.hottop.raisehot.model.User"/> 
          <typeAlias alias="WorkOrder" type="com.hottop.raisehot.model.WorkOrder"/> 
+         <typeAlias alias="WorkTask" type="com.hottop.raisehot.model.WorkTask"/> 
+         <typeAlias alias="OptRecord" type="com.hottop.raisehot.model.OptRecord"/> 
     </typeAliases>
 
     <!-- 映射map -->

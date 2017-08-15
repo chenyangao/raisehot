@@ -6,9 +6,8 @@
  * @date 2017年8月3日下午4:10:28 
  * @version V1.0   
  */
-package com.hottop.raisehot;
+package com.hottop.raisehot.service;
 
-import java.lang.reflect.Modifier;
 import java.text.MessageFormat;
 import java.util.Date;
 import java.util.List;
@@ -17,14 +16,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.model.WorkOrder;
-import com.hottop.raisehot.model.enumvalue.OptType;
-import com.hottop.raisehot.model.enumvalue.Status;
 import com.hottop.raisehot.model.enumvalue.WorkOrderStatus;
-import com.hottop.raisehot.service.WorkOrderService;
 import com.hottop.raisehot.util.SnowflakeIdWorker;
 
 /**
@@ -35,7 +30,7 @@ import com.hottop.raisehot.util.SnowflakeIdWorker;
  *
  * 
  */
-public class WorkOrderTest extends BaseService {
+public class WorkOrderServiceTest extends BaseService {
 	protected final Logger       logger = LoggerFactory.getLogger(this.getClass());
 
 	private static User modifier;
@@ -79,8 +74,7 @@ public class WorkOrderTest extends BaseService {
 	@Test
 	public void workOrderOpt() {
 		logger.info("WorkOrderOpt() - start");
-		OptType optType = OptType.valueOf("opt") ;
-		workOrderService.workOrderChange("339444585916792832", optType);
+ 		workOrderService.workOrderChange("346714728682225664", WorkOrderStatus.Cancel);
 		logger.info("WorkOrderOpt() - end");
 	} 
 	@Test

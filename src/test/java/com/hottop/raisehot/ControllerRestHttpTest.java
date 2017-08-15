@@ -21,15 +21,25 @@ import org.springframework.web.client.RestTemplate;
  *
  * 
  */
-public class ControllerHttpTest {
+public class ControllerRestHttpTest {
+	/**   
+	 * @Title: controllerRestHttpTest   
+	 * @Description:成功了  
+	 */  
 	@Test
-	public void httpTest1(){
+	public void controllerRestHttpTest(){
 		RestTemplate restTemplate = new RestTemplate();
 		MultiValueMap<String, String> form = new LinkedMultiValueMap<String, String>();
-		form.add("userName", "cyg");
+		form.add("nickName", "cyg");
 		form.add("password", "123456");
 		form.add("age", "12");
-		String url = "http://localhost:8080/raisehot/user/userregister.do";
+		form.add("phoneNumber", "18516029987");
+		form.add("userType", "1");
+		form.add("isNumber", "160212499");
+		form.add("isName", "火星人漂流");
+		form.add("qq", "160212499");
+		form.add("creator", "1");
+		String url = "http://localhost:8080/raisehot/user/register.do";
 		restTemplate.postForLocation(url , form);
 	}
 

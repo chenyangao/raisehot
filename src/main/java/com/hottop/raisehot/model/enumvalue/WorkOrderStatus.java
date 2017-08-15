@@ -24,11 +24,11 @@ public enum WorkOrderStatus {
 	/**  
 	 * @Fields Disable : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	Cancel("cancel", "取消"),
+	Cancel("Cancel", "取消"),
 	/**  
 	 * @Fields Frozen : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	Complete("complete", "完成");
+	Complete("Complete", "完成");
     /* 编码 */
 
     /* 描述 */

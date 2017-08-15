@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hottop.raisehot.dao.OptRecordDao">
+
+	<insert id="insertOptRecord" parameterType="OptRecord" keyProperty="id">
+		INSERT INTO tb_opt_mark
+		(user_id,
+		order_id,
+		task_id,
+		opt_type,
+		opt_time,
+		opt_remark)
+		VALUES
+		(#{creator.id},
+		#{workOrder.id},
+		#{workTask.id},
+		#{optType},
+		#{createTime},
+		#{remark})
+	</insert>
+
+	<select id="queryOptRecord" parameterType="OptRecord" resultType="OptRecord">
+		SELECT user_id creator,
+		order_id workOrder,
+		task_id workTask,
+		opt_type optType,
+		opt_time createTime,
+		opt_remark remark
+		FROM tb_opt_mark WHERE order_id=#{workOrder.id}
+	</select>
+ 
+</mapper>
