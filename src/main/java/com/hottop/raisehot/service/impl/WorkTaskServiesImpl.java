@@ -50,7 +50,7 @@ public class WorkTaskServiesImpl implements WorkTaskServie {
 	 */
 	@Override
 	public void cancelTask(String id, TaskStatus taskStatus) {
-		workTaskDao.updateTask(id,taskStatus);
+		workTaskDao.updateTask(id,taskStatus.getCode());
 	}
 
 	/* (non-Javadoc)
@@ -58,7 +58,7 @@ public class WorkTaskServiesImpl implements WorkTaskServie {
 	 */
 	@Override
 	public void completeTask(String id, TaskStatus taskStatus) {
-		workTaskDao.updateTask(id,taskStatus);
+		workTaskDao.updateTask(id,taskStatus.getCode());
 	}
 
 	/* (non-Javadoc)

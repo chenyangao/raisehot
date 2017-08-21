@@ -56,7 +56,7 @@ public interface UserService {
 	 * @param opt TODO
 	 */  
 	
-	public void userOpt(Long id, String opt);
+	public void userOpt(String id, String opt);
 
 	/**   
 	 * @Title: preview   

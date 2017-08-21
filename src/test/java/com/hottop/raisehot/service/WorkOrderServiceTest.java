@@ -12,10 +12,12 @@ import java.text.MessageFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.model.WorkOrder;
@@ -32,11 +34,16 @@ import com.hottop.raisehot.util.SnowflakeIdWorker;
  */
 public class WorkOrderServiceTest extends BaseService {
 	protected final Logger       logger = LoggerFactory.getLogger(this.getClass());
-
+	@Autowired
+	WorkOrderService workOrderService;
 	private static User modifier;
 
 	 private static 		User creator;
 
+	 @Before 
+	 public void before(){
+			workOrderService = (WorkOrderService) context.getBean("workOrderService");
+	 }
 	@BeforeClass
 	  public static void setUp(){
 		creator = new User("343706696922693632");

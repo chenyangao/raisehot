@@ -9,6 +9,9 @@
 package com.hottop.raisehot;
 
 import org.junit.Test;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -42,5 +45,26 @@ public class ControllerRestHttpTest {
 		String url = "http://localhost:8080/raisehot/user/register.do";
 		restTemplate.postForLocation(url , form);
 	}
+	
+	@Test
+	public void controllerPrTest(){
+		RestTemplate restTemplate = new RestTemplate();
+		MultiValueMap<String, String> form = new LinkedMultiValueMap<String, String>();
+		form.add("id", "343706696922693632"); 
+		String url = "http://localhost:8080/raisehot/user/preview.do";
+		
+		 HttpHeaders headers = new HttpHeaders();
+	        MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
+	        headers.setContentType(type);
+	        String requestJson = "{\"id\":"+""
+	        		+ "\"343706696922693632\""+"}";
+	        HttpEntity<String> entity = new HttpEntity<String>(requestJson,headers);
+	        String result = restTemplate.postForObject(url, form, String.class);
+	        System.out.println(result);
+		
+	//	Object object = restTemplate.postForObject(url , form, "application/json");
+		
+	}
+
 
 }

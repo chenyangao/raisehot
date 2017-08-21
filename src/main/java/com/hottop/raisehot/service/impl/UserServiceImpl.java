@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
 	 * @see com.hottop.raisehot.service.UserService#logout(java.lang.String)
 	 */
 	@Override
-	public void userOpt(Long id, String opt) {
+	public void userOpt(String id, String opt) {
 		logger.info("userOpt(Long, String) - start");
 	   int i = userDao.userModifyStatus(id, opt);
 	   logger.info("userOpt(Long, String) - end" + i);

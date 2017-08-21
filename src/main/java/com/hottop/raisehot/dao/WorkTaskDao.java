@@ -10,10 +10,10 @@ package com.hottop.raisehot.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.hottop.raisehot.model.WorkTask;
-import com.hottop.raisehot.model.enumvalue.TaskStatus;
 
 /**
  * @ClassName: WorkTaskDao
@@ -39,7 +39,7 @@ public interface WorkTaskDao {
 	 * @param taskStatus
 	 */  
 	
-	public void updateTask(String id, TaskStatus taskStatus) ;
+	public void updateTask(@Param("id")String id,@Param("taskStatus")String taskStatus) ;
 
 	/**   
 	 * @Title: queryTask   

@@ -3,7 +3,7 @@
  xmlns:context="http://www.springframework.org/schema/context"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.springframework.org/schema/beans
-      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/beans/spring-beans.xsd
       http://www.springframework.org/schema/context
       http://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -19,7 +19,6 @@
     <!-- 用户管理的controller--> 
     <context:component-scan base-package="com.hottop.raisehot.controller"/>
     
-    <bean id="appUtil" class="com.hottop.raisehot.AppUtil"/>
     <!-- 使用Annotation自动注册Bean,扫描@Controller和@ControllerAdvice-->
 	<context:component-scan base-package="com.hottop.raisehot.controller" use-default-filters="false">
 	    <!-- base-package 如果多个，用“,”分隔 -->
@@ -27,4 +26,5 @@
 	    <!--控制器增强，使一个Contoller成为全局的异常处理类，类中用@ExceptionHandler方法注解的方法可以处理所有Controller发生的异常-->
 	    <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
 	</context:component-scan>
+    
 </beans>

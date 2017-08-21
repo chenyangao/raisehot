@@ -105,7 +105,7 @@ public class UserController extends BaseController {
 			@RequestParam(value = "opt", required = true) String opt) {
 		logger.info(MessageFormat.format("修改用户状态:{0},操作:{1} ",id,opt));
 		logger.info("用户号{}，操作{}", id, opt);
-		userService.userOpt(Long.valueOf(id), opt);
+		userService.userOpt(id, opt);
 		return id;
 	}
 

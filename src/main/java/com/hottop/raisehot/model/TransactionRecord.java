@@ -21,6 +21,16 @@ import com.hottop.raisehot.model.enumvalue.TransactionType;
 public class TransactionRecord extends BaseModel {
 	
 	/**  
+	 * @Title: TransactionRecord  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 * @param id
+	 */
+	public TransactionRecord(String id) {
+		super(id);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**  
 	 * @Fields transactionType : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private TransactionType transactionType ;

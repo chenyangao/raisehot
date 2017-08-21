@@ -20,6 +20,24 @@ import com.hottop.raisehot.model.enumvalue.TaskStatus;
  */
 public class WorkTask extends BaseModel {
 	
+	/**  
+	 * @Title: WorkTask  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 * @param id
+	 */
+	public WorkTask(String id) {
+		super(id);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**  
+	 * @Title: WorkTask  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 */
+	public WorkTask() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**   
 	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)  
 	 */  
@@ -29,13 +47,13 @@ public class WorkTask extends BaseModel {
 	 */  
 	private String serialNo;
 	/**  
-	 * @Fields workOrder : 工作单  
+	 * @Fields workOrder : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private WorkOrder workOrder ;
 	/**  
 	 * @Fields taskStatus : 任务状态  
 	 */  
-	private TaskStatus taskStatus ;
+	private TaskStatus taskStatus =TaskStatus.Disable;
 	/**  
 	 * @Fields orderUser : TODO(用一句话描述这个变量表示什么)  
 	 */  

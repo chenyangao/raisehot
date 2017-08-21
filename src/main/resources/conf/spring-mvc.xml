@@ -18,57 +18,6 @@
    <!--springMVC配置文件开启注解 -->
    <mvc:annotation-driven />
    
-   <!-- 避免IE在ajax请求时，返回json出现下载
-   <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">		
-		<property name="supportedMediaTypes">
-			<list>
-				<value>text/html;charset=UTF-8</value>
-			</list>
-		</property>
-	</bean> -->
-	
-		<!-- 输出对象转JSON支持   -->
- 	<bean id="stringConverter" class="org.springframework.http.converter.StringHttpMessageConverter">  
-        <property name="supportedMediaTypes">  
-            <list>  
-                <value>text/plain;charset=UTF-8</value>  
-            </list>  
-        </property>  
-    </bean>  
- 
-    <!-- <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-         <property name="supportedMediaTypes">
-            <list>
-                <value>application/json;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean> -->
-     <!-- <bean id="jsonConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
-         <property name="supportedMediaTypes">
-            <list>
-                <value>application/json;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean> -->
-    
-    <!----><bean id="jsonConverter" class="com.hottop.raisehot.controller.JSONConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <value>application/json;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean> 
-        
-    <bean  id="jacksonMessageConverter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">  
-            <list>  
-                <ref bean="stringConverter"/>  
-                <ref bean="jsonConverter" />  
-            </list>  
-        </property>  
-    </bean>  
-	
-		
    <!-- 对模型视图添加前后缀 
      <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
    -->

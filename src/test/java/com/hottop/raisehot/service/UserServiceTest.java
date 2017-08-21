@@ -12,9 +12,13 @@ package com.hottop.raisehot.service;
 import java.text.MessageFormat;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.util.SnowflakeIdWorker;
@@ -27,8 +31,15 @@ import com.hottop.raisehot.util.SnowflakeIdWorker;
  *
  * 
  */
+//@RunWith(Parameterized.class)
 public class UserServiceTest extends BaseService{
 	protected final Logger       logger = LoggerFactory.getLogger(this.getClass());
+	@Autowired
+	UserService userService;
+	@Before
+	public void before(){
+		userService = (UserService) context.getBean("userService");
+	}
 	@Test
 	public void addUser() {
 		logger.debug("addUser() - start");
@@ -68,7 +79,7 @@ public class UserServiceTest extends BaseService{
 	@Test
 	public void userOpt() {
 		logger.info("userOpt() - start");
-		userService.userOpt(339444585916792832L, "2");
+		userService.userOpt("339444585916792832", "2");
 		logger.info("userOpt() - end");
 	}
 	@Test

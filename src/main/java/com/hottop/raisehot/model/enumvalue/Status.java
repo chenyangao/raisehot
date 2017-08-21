@@ -75,7 +75,7 @@ public enum Status {
         }
         return null;
     }
-    public String toString() {
+    /*public String toString() {
     	 return "{\"code\":\"" + this.code+ "\",\"text\":\"" + desc +"\"}";
-    }
+    }*/
 }

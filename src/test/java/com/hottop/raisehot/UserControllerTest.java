@@ -36,7 +36,7 @@ public class UserControllerTest {
     
    @Test
    public void testHome() throws Exception {
-       mvc.perform(MockMvcRequestBuilders.get("/book/home"))
+       mvc.perform(MockMvcRequestBuilders.get("http://localhost:8080/raisehot/user/preview.do"))
        .andExpect(MockMvcResultMatchers.status().isOk()).andExpect(MockMvcResultMatchers.content().string("bookhome"));
    }
 }

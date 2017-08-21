@@ -11,8 +11,6 @@ package com.hottop.raisehot.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.codehaus.jackson.annotate.JsonValue;
-
 import com.hottop.raisehot.model.enumvalue.Status;
 
 /**
@@ -108,19 +106,18 @@ public abstract class BaseModel implements Serializable{
 	/**  
 	 * @Title: BaseModel  
 	 * @Description: TODO(这里用一句话描述这个方法的作用)  
-	 */
-	public BaseModel() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**  
-	 * @Title: BaseModel  
-	 * @Description: TODO(这里用一句话描述这个方法的作用)  
 	 * @param id
 	 */
 	public BaseModel(String id) {
 		super();
 		this.id = id;
+	}
+	/**  
+	 * @Title: BaseModel  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 */
+	public BaseModel() {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -285,6 +282,4 @@ public abstract class BaseModel implements Serializable{
 				+ ", createTime=" + createTime + ", updateTime=" + updateTime + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", version=" + version + ", remark=" + remark + "]";
 	}
-	
-	
 }

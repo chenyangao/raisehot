@@ -21,6 +21,22 @@ import com.hottop.raisehot.model.enumvalue.OptType;
 public class OptRecord extends BaseModel {
 	
 	/**  
+	 * @Title: OptRecord  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 * @param id
+	 */
+	public OptRecord(String id) {
+		super(id);
+		// TODO Auto-generated constructor stub
+	}
+	/**  
+	 * @Title: OptRecord  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 */
+	public OptRecord() {
+		// TODO Auto-generated constructor stub
+	}
+	/**  
 	 * @Fields workOrder : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	WorkOrder workOrder ;

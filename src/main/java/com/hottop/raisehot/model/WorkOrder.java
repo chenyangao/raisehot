@@ -9,8 +9,10 @@
 package com.hottop.raisehot.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import com.hottop.raisehot.model.enumvalue.Status;
 import com.hottop.raisehot.model.enumvalue.WorkOrderStatus;
 
 /**
@@ -346,4 +348,74 @@ public class WorkOrder extends BaseModel {
 		this.workTasks = workTasks;
 	}
 
+	/**  
+	 * @Title: WorkOrder  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 * @param id
+	 * @param status
+	 * @param creator
+	 * @param modifier
+	 * @param createTime
+	 * @param updateTime
+	 * @param startDate
+	 * @param endDate
+	 * @param version
+	 * @param remark
+	 * @param serialNo
+	 * @param jobType
+	 * @param goldCoinSum
+	 * @param taskCount
+	 * @param linkType
+	 * @param userLevel
+	 * @param taskTime
+	 * @param comparativeOpt
+	 * @param favoritesOpt
+	 * @param chatOpt
+	 * @param browseTime
+	 * @param otherRequirement
+	 * @param advancePrincipal
+	 * @param additionalPrincipal
+	 * @param workOrderStatus
+	 * @param workTasks
+	 */
+	public WorkOrder(String id, Status status, User creator, User modifier, Date createTime, Date updateTime,
+			Date startDate, Date endDate, int version, String remark, String serialNo, String jobType,
+			Integer goldCoinSum, Integer taskCount, String linkType, String userLevel, String taskTime,
+			String comparativeOpt, String favoritesOpt, String chatOpt, String browseTime, String otherRequirement,
+			Integer advancePrincipal, Integer additionalPrincipal, WorkOrderStatus workOrderStatus,
+			List<WorkTask> workTasks) {
+		super(id, status, creator, modifier, createTime, updateTime, startDate, endDate, version, remark);
+		this.serialNo = serialNo;
+		this.jobType = jobType;
+		this.goldCoinSum = goldCoinSum;
+		this.taskCount = taskCount;
+		this.linkType = linkType;
+		this.userLevel = userLevel;
+		this.taskTime = taskTime;
+		this.comparativeOpt = comparativeOpt;
+		this.favoritesOpt = favoritesOpt;
+		this.chatOpt = chatOpt;
+		this.browseTime = browseTime;
+		this.otherRequirement = otherRequirement;
+		this.advancePrincipal = advancePrincipal;
+		this.additionalPrincipal = additionalPrincipal;
+		this.workOrderStatus = workOrderStatus;
+		this.workTasks = workTasks;
+	}
+	/**  
+	 * @Title: BaseModel  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 * @param id
+	 */
+	public WorkOrder(String id) {
+		super(id);
+	}
+
+	/**  
+	 * @Title: WorkOrder  
+	 * @Description: TODO(这里用一句话描述这个方法的作用)  
+	 */
+	public WorkOrder() {
+		// TODO Auto-generated constructor stub
+	}
 }

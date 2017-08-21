@@ -59,7 +59,7 @@ public interface UserDAO {
 	 * @return
 	 */  
 	
-	public int userModifyStatus(@Param("id")Long id,@Param("opt")String opt);
+	public int userModifyStatus(@Param("id")String id,@Param("opt")String opt);
 
 	/**   
 	 * @Title: getUserLogin   

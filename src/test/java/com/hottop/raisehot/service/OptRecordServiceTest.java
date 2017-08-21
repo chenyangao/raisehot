@@ -13,10 +13,12 @@ import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hottop.raisehot.model.OptRecord;
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.model.WorkOrder;
+import com.hottop.raisehot.model.WorkTask;
 
 /**
  * @ClassName: OptRecord
@@ -27,25 +29,31 @@ import com.hottop.raisehot.model.WorkOrder;
  * 
  */
 public class OptRecordServiceTest extends BaseService {
+
+	@Autowired
+	OptRecordService optRecordService;
 	OptRecord optRecord;
+	 @Before 
+	 public void before(){
+			optRecordService = (OptRecordService) context.getBean("optRecordService");
+	 }
  	@Test
 	public void addOptRecord(){ 
 		optRecord = new OptRecord();
-		optRecord.setCreator(new User("343706696922693632"));
+		optRecord.setCreator(new User("346966180939956224"));
+		optRecord.setWorkOrder(new WorkOrder("346712903568588800"));
+		optRecord.setWorkTask(new WorkTask("347121130080829440"));
  		optRecordService.addOptRecord(optRecord);;
-		fail("Not yet implemented");
 	}
  	@Test
  	public void viewOptRecord(){ 
  		WorkOrder workOrder = null;
 		optRecordService.viewOptRecord(workOrder);
- 		fail("Not yet implemented");
  	}
  	@Test
  	public void viewOptRecord2(){ 
  		WorkOrder workTask = null;
 		optRecordService.viewOptRecord(workTask);
- 		fail("Not yet implemented");
  	}
 
 }
