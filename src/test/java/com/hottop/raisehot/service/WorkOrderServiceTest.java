@@ -21,7 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.model.WorkOrder;
-import com.hottop.raisehot.model.enumvalue.WorkOrderStatus;
+import com.hottop.raisehot.model.enums.WorkOrderStatus;
 import com.hottop.raisehot.util.SnowflakeIdWorker;
 
 /**

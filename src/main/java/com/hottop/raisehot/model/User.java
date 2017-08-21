@@ -12,7 +12,7 @@ import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 
-import com.hottop.raisehot.model.enumvalue.Status;
+import com.hottop.raisehot.model.enums.Status;
 
 /**
  * @ClassName: User

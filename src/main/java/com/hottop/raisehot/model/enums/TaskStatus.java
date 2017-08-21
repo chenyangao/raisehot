@@ -6,7 +6,7 @@
  * @date 2017年7月8日上午1:10:42 
  * @version V1.0   
  */
-package com.hottop.raisehot.model.enumvalue;
+package com.hottop.raisehot.model.enums;
 
 /**
  * @ClassName: TaskTaskStatus
@@ -20,16 +20,15 @@ public enum TaskStatus {
 	/**  
 	 * @Fields Enable : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	Enable("Enable", "发布"),
+	Release("Release", "发布"),
 	/**  
 	 * @Fields Disable : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	Disable("Disable", "取消"),
+	Cancel("Cancel", "取消"),
 	/**  
 	 * @Fields Frozen : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	Frozen("Frozen", "完成"),
-    ;
+	Complete("Complete", "完成");
 
     /* 编码 */
 

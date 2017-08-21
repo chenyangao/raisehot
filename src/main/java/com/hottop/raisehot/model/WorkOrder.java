@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.hottop.raisehot.model.enumvalue.Status;
-import com.hottop.raisehot.model.enumvalue.WorkOrderStatus;
+import com.hottop.raisehot.model.enums.Status;
+import com.hottop.raisehot.model.enums.WorkOrderStatus;
 
 /**
  * @ClassName: WorkOrder

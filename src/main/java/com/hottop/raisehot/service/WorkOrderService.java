@@ -11,8 +11,8 @@ package com.hottop.raisehot.service;
 import java.util.List;
 
 import com.hottop.raisehot.model.WorkOrder;
-import com.hottop.raisehot.model.enumvalue.OptType;
-import com.hottop.raisehot.model.enumvalue.WorkOrderStatus;
+import com.hottop.raisehot.model.enums.OptType;
+import com.hottop.raisehot.model.enums.WorkOrderStatus;
 
 /**
  * @ClassName: WorkOrderService

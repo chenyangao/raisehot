@@ -6,7 +6,7 @@
  * @date 2017年8月6日上午10:40:24 
  * @version V1.0   
  */
-package com.hottop.raisehot.model.enumvalue;
+package com.hottop.raisehot.model.enums;
 
 /**
  * @ClassName: Status

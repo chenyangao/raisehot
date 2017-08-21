@@ -6,7 +6,7 @@
  * @date 2017年7月8日上午1:26:28 
  * @version V1.0   
  */
-package com.hottop.raisehot.model.enumvalue;
+package com.hottop.raisehot.model.enums;
 
 /**
  * @ClassName: TransactionType

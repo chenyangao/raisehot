@@ -8,7 +8,7 @@
  */
 package com.hottop.raisehot.model;
 
-import com.hottop.raisehot.model.enumvalue.TransactionType;
+import com.hottop.raisehot.model.enums.TransactionType;
 
 /**
  * @ClassName: TransactionRecord

@@ -8,7 +8,7 @@
  */
 package com.hottop.raisehot.model;
 
-import com.hottop.raisehot.model.enumvalue.OptType;
+import com.hottop.raisehot.model.enums.OptType;
 
 /**
  * @ClassName: OptRecord

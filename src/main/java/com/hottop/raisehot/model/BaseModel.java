@@ -11,7 +11,7 @@ package com.hottop.raisehot.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.hottop.raisehot.model.enumvalue.Status;
+import com.hottop.raisehot.model.enums.Status;
 
 /**
  * @ClassName: BaseModel

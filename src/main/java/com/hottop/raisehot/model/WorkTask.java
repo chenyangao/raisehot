@@ -10,7 +10,7 @@ package com.hottop.raisehot.model;
 
 import java.util.List;
 
-import com.hottop.raisehot.model.enumvalue.TaskStatus;
+import com.hottop.raisehot.model.enums.TaskStatus;
 
 /**
  * @ClassName: 工作任务
@@ -53,7 +53,7 @@ public class WorkTask extends BaseModel {
 	/**  
 	 * @Fields taskStatus : 任务状态  
 	 */  
-	private TaskStatus taskStatus =TaskStatus.Disable;
+	private TaskStatus taskStatus =TaskStatus.Release;
 	/**  
 	 * @Fields orderUser : TODO(用一句话描述这个变量表示什么)  
 	 */  

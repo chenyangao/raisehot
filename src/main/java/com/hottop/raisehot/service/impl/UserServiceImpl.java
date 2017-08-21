@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hottop.raisehot.dao.UserDAO;
 import com.hottop.raisehot.model.User;
-import com.hottop.raisehot.model.enumvalue.Status;
+import com.hottop.raisehot.model.enums.Status;
 import com.hottop.raisehot.service.UserService;
 import com.hottop.raisehot.util.SnowflakeIdWorker;
 

@@ -11,7 +11,7 @@ package com.hottop.raisehot.service;
 import java.util.List;
 
 import com.hottop.raisehot.model.WorkTask;
-import com.hottop.raisehot.model.enumvalue.TaskStatus;
+import com.hottop.raisehot.model.enums.TaskStatus;
 
 /**
  * @ClassName: WorkTaskServies

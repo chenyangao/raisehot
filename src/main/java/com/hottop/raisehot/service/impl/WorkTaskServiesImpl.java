@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hottop.raisehot.dao.WorkTaskDao;
 import com.hottop.raisehot.model.WorkTask;
-import com.hottop.raisehot.model.enumvalue.TaskStatus;
+import com.hottop.raisehot.model.enums.TaskStatus;
 import com.hottop.raisehot.service.WorkTaskServie;
 import com.hottop.raisehot.util.SnowflakeIdWorker;
 
