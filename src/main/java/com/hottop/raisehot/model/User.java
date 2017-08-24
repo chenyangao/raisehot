@@ -55,11 +55,16 @@ public class User extends BaseModel {
 	/**  
 	 * @Fields isName : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	private String isName;
+	/**  
+	 * @Fields isName : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	/**  
+	 * @Fields qq : dd  
+	 */  
+	private String isName,qq;
 	/**  
 	 * @Fields qq : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	private String qq;
 	/**  
 	 * @Fields locus : TODO(用一句话描述这个变量表示什么)  
 	 */  

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.druid.util.StringUtils;
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.service.UserService;
  
@@ -101,11 +102,13 @@ public class UserController extends BaseController {
 	 * @return
 	 */  
 	@RequestMapping(value = "/userOpt.do", method = RequestMethod.POST, params = "id")
-	public String userModify(@RequestParam(value = "id", required = true) String id,
-			@RequestParam(value = "opt", required = true) String opt) {
+	public String userModify(@RequestParam(value = "id", required = true) String id, @RequestParam(value = "opt", required = true) String opt) {
 		logger.info(MessageFormat.format("修改用户状态:{0},操作:{1} ",id,opt));
 		logger.info("用户号{}，操作{}", id, opt);
 		userService.userOpt(id, opt);
+		if (StringUtils.isEmpty(id)) {
+			return retContent(1010, null);
+		}
 		return id;
 	}
 
