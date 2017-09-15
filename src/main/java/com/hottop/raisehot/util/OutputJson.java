@@ -18,8 +18,6 @@ package com.hottop.raisehot.util;
  */
 
 import java.io.Serializable;
-
-import com.alibaba.druid.support.json.JSONUtils;
  
 
 public class OutputJson implements Serializable{
@@ -31,14 +29,11 @@ public class OutputJson implements Serializable{
     //状态码
     private int status;
     //必要的提示信息
-    private String message;
-    //业务数据
-    private Object data;
+    private String message; 
 
-    public OutputJson(int status,String message,Object data){
+    public OutputJson(int status,String message){
         this.status = status;
         this.message = message;
-        this.data = data;
     }
     public int getStatus() {
         return status;
@@ -51,17 +46,5 @@ public class OutputJson implements Serializable{
     }
     public void setMessage(String message) {
         this.message = message;
-    }
-    public Object getData() {
-        return data;
-    }
-    public void setData(Object data) {
-        this.data = data;
-    }
-    public String toString(){
-        if(null == this.data){
-            this.setData(new Object());
-        }
-        return JSONUtils.toJSONString(this);
     }
 }

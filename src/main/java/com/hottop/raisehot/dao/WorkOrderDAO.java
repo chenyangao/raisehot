@@ -11,7 +11,6 @@ package com.hottop.raisehot.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import com.hottop.raisehot.model.WorkOrder;
 
@@ -23,7 +22,6 @@ import com.hottop.raisehot.model.WorkOrder;
  *
  * 
  */
-@Repository("workOrderDao")
 public interface WorkOrderDAO {
 	/**   
 	 * @Title: insertWorkOrder   

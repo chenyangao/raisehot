@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hottop.raisehot.dao.WorkTaskDao;
 import com.hottop.raisehot.model.WorkTask;
-import com.hottop.raisehot.model.enums.TaskStatus;
+import com.hottop.raisehot.model.WorkTask.Status;
 import com.hottop.raisehot.service.WorkTaskServie;
 import com.hottop.raisehot.util.SnowflakeIdWorker;
 
@@ -49,7 +49,7 @@ public class WorkTaskServiesImpl implements WorkTaskServie {
 	 * @see com.hottop.raisehot.service.WorkTaskServies#cancelTask(java.lang.String, com.hottop.raisehot.model.enumvalue.TaskStatus)
 	 */
 	@Override
-	public void cancelTask(String id, TaskStatus taskStatus) {
+	public void cancelTask(String id, WorkTask.Status taskStatus) {
 		workTaskDao.updateTask(id,taskStatus.getCode());
 	}
 
@@ -57,7 +57,7 @@ public class WorkTaskServiesImpl implements WorkTaskServie {
 	 * @see com.hottop.raisehot.service.WorkTaskServies#completeTask(java.lang.String, com.hottop.raisehot.model.enumvalue.TaskStatus)
 	 */
 	@Override
-	public void completeTask(String id, TaskStatus taskStatus) {
+	public void completeTask(String id, Status taskStatus) {
 		workTaskDao.updateTask(id,taskStatus.getCode());
 	}
 

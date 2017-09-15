@@ -8,8 +8,6 @@
  */
 package com.hottop.raisehot.controller;
 
-import com.hottop.raisehot.util.ReturnFormat;
-
 /**
  * @ClassName: BaseController
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -19,7 +17,7 @@ import com.hottop.raisehot.util.ReturnFormat;
  * 
  */
 public abstract class BaseController {
-    protected String retContent(int status,Object data) {
-        return ReturnFormat.retParam(status, data);
+    protected  static <T> RestResult<T> retSuccessResult(T data) {
+		return RestResultGenerator.genSuccessResult(data);
     }
 }

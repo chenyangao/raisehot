@@ -22,7 +22,6 @@ import com.hottop.raisehot.model.OptRecord;
  *
  * 
  */
-@Repository("optRecordDao")
 public interface OptRecordDao {
 
 	/**   

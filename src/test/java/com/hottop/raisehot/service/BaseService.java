@@ -24,7 +24,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class BaseService {
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
-		@SuppressWarnings("resource")
 	public static ApplicationContext  context ;
 	/*
 	 * static{

@@ -27,7 +27,7 @@
     <!-- ch.qos.logback.core.ConsoleAppender 控制台输出 -->
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>[%-5level] %d{HH:mm:ss.SSS} [%thread] %logger{36} - %msg%n</pattern>
+			<pattern>[%-5level] %d{HH:mm:ss.SSS} %contextName  [%thread] %logger{36} - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -46,7 +46,7 @@
     <logger name="java.sql.PreparedStatement" level="debug" />
     <logger name="java.sql.ResultSet" level="debug" />
 	
-	    <!-- 邮件监控异常 -->
+	    <!-- 邮件监控异常 
     <appender name="EMAIL" class="ch.qos.logback.classic.net.SMTPAppender">
         <smtpHost>smtp.exmail.qq.com</smtpHost>
         <username>cygeagle@foxmail.com</username>
@@ -59,5 +59,5 @@
             <level>ERROR</level>
         </filter>
     </appender>
-    
+    -->
 </configuration>

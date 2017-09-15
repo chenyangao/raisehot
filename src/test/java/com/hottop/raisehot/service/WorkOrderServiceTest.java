@@ -21,7 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.model.WorkOrder;
-import com.hottop.raisehot.model.enums.WorkOrderStatus;
+import com.hottop.raisehot.model.WorkOrder.Status;
 import com.hottop.raisehot.util.SnowflakeIdWorker;
 
 /**
@@ -57,7 +57,7 @@ public class WorkOrderServiceTest extends BaseService {
         SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
 		String id = String.valueOf(idWorker.nextId());
 		workOrder.setId(id);
-		workOrder.setWorkOrderStatus(WorkOrderStatus.Release);
+		workOrder.setWorkOrderStatus(WorkOrder.Status.Release);
 		workOrder.setJobType("01");
 		workOrder.setCreator(creator);
 		workOrder.setCreateTime(new Date());
@@ -81,7 +81,7 @@ public class WorkOrderServiceTest extends BaseService {
 	@Test
 	public void workOrderOpt() {
 		logger.info("WorkOrderOpt() - start");
- 		workOrderService.workOrderChange("346714728682225664", WorkOrderStatus.Cancel);
+ 		workOrderService.workOrderChange("346714728682225664", Status.Cancel);
 		logger.info("WorkOrderOpt() - end");
 	} 
 	@Test

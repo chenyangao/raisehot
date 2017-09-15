@@ -11,20 +11,19 @@ package com.hottop.raisehot.controller;
 import java.text.MessageFormat;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.alibaba.druid.util.StringUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.service.UserService;
  
@@ -35,8 +34,9 @@ import com.hottop.raisehot.service.UserService;
  * @date 2017年7月2日上午9:41:35
  * 
  */
-@Controller
+@RestController
 @RequestMapping("/user")
+@EnableAutoConfiguration //用于自动配置。简单的说，它会根据你的pom配置（实际上应该是根据具体的依赖）来判断这是一个什么应用，并创建相应的环境。
 public class UserController extends BaseController {
 	/**  
 	 * @Fields logger : TODO(用一句话描述这个变量表示什么)  
@@ -45,7 +45,7 @@ public class UserController extends BaseController {
 	/**  
 	 * @Fields userService : TODO(用一句话描述这个变量表示什么)  
 	 */  
-	@Autowired
+	@Resource
 	private UserService userService;
 
 	/**   
@@ -56,13 +56,22 @@ public class UserController extends BaseController {
 	 * @return
 	 */  
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public ModelAndView login(@RequestParam(value = "phoneNumber", required = true) String phoneNumber,
+	public RestResult<User> login(@RequestParam(value = "phoneNumber", required = true) String phoneNumber,
 			@RequestParam(value = "password", required = true) String password) {
 		logger.info(MessageFormat.format("手机号:{0},密码:{1} ",phoneNumber,password));
 		User user = userService.login(phoneNumber,password);
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("user", user);
-		return modelAndView;
+		ObjectMapper mapper = new ObjectMapper();  
+		        //User类转JSON  
+		       //输出结果：{"name":"小民","age":20,"birthday":844099200000,"email":"xiaomin@sina.com"}  
+		         String json;
+				try {
+					json = mapper.writeValueAsString(user);
+					System.out.println(json);  
+				} catch (JsonProcessingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}  
+		return retSuccessResult(user);
 	}
 
 	/**   
@@ -72,13 +81,13 @@ public class UserController extends BaseController {
 	 * @return
 	 */  
 	@RequestMapping(value = "/register.do", method = RequestMethod.POST)
-	public ResponseEntity<User> userRegister(@ModelAttribute(value = "user") User user) {
+	public RestResult<User> userRegister(@ModelAttribute(value = "user") User user) {
 		logger.info(MessageFormat.format("用户信息:{0}",user.toString()));
 		user.setWechatId("cygeagle");
 		user.setGoldCoins(0);
 		User userReg = userService.userRegister(user);
-		ResponseEntity<User> responseEntity = new ResponseEntity<User>(userReg, HttpStatus.OK);
- 		return responseEntity;
+		return retSuccessResult(userReg);
+
 	}
 
 	/**   
@@ -88,10 +97,10 @@ public class UserController extends BaseController {
 	 * @return
 	 */  
 	@RequestMapping(value = "/sendmessage.do", method = RequestMethod.POST)
-	public String sendMessage(@RequestParam(value = "phoneNumber", required = true) String phoneNumber) {
+	public RestResult<String> sendMessage(@RequestParam(value = "phoneNumber", required = true) String phoneNumber) {
 		logger.info(MessageFormat.format("手机号:{0}",phoneNumber));
 		userService.sendMessage(phoneNumber);
-		return phoneNumber;
+		return RestResultGenerator.genSuccessResult(phoneNumber);
 	}
 
 	/**   
@@ -102,14 +111,12 @@ public class UserController extends BaseController {
 	 * @return
 	 */  
 	@RequestMapping(value = "/userOpt.do", method = RequestMethod.POST, params = "id")
-	public String userModify(@RequestParam(value = "id", required = true) String id, @RequestParam(value = "opt", required = true) String opt) {
+	public RestResult<?> userModify(@RequestParam(value = "id", required = true) String id, @RequestParam(value = "opt", required = true) String opt) {
 		logger.info(MessageFormat.format("修改用户状态:{0},操作:{1} ",id,opt));
 		logger.info("用户号{}，操作{}", id, opt);
 		userService.userOpt(id, opt);
-		if (StringUtils.isEmpty(id)) {
-			return retContent(1010, null);
-		}
-		return id;
+		return RestResultGenerator.genSuccessResult();
+
 	}
 
 	/**   
@@ -122,15 +129,15 @@ public class UserController extends BaseController {
      * 当使用@RequestMapping URI template 样式映射时， 即 someUrl/{paramId},
      * 这时的paramId可通过 @Pathvariable注解绑定它传过来的值到方法的参数上。
      */
+	
 	@RequestMapping(value = "/preview.do", method = RequestMethod.POST)
-	public @ResponseBody User userPreview(@RequestParam(value = "id", required = true) String id) {
-		logger.info(MessageFormat.format("查看详情 ID:{0}",id));
+	public RestResult<User> userPreview(@RequestParam(value = "id", required = true) String id) {
+		logger.debug(MessageFormat.format("查看详情 ID:{0}",id));
 		User user = userService.preview(id);
 		/*int features=SerializerFeature.config(JSON.DEFAULT_GENERATE_FEATURE, SerializerFeature.WriteEnumUsingToString, false);
 		 String jsonString = JSON.toJSONString(user,features,SerializerFeature.WriteEnumUsingToString);
 		System.out.println(jsonString);*/
-		return user;
-
+		return RestResultGenerator.genSuccessResult(user);
 	}
 	
 	/**   
@@ -144,9 +151,9 @@ public class UserController extends BaseController {
      * 写入到Response对象的body数据区 使用的时候Controller返回的不是界面的时候，是json或者xml
      */
 	@RequestMapping(value = "/useruanager.do", method = RequestMethod.POST)
-	public @ResponseBody  List<User> userManager(@ModelAttribute(value = "user") User user){
+	public RestResult<List<User>> userManager(@ModelAttribute(value = "user") User user){
 		List<User> userlist = userService.getAllUser(user);
- 		return userlist;
+        return RestResultGenerator.genSuccessResult(userlist);
 	}
 
 }

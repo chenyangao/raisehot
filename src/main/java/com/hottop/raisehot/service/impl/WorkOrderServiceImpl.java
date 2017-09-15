@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hottop.raisehot.dao.WorkOrderDAO;
 import com.hottop.raisehot.model.WorkOrder;
-import com.hottop.raisehot.model.enums.WorkOrderStatus;
 import com.hottop.raisehot.service.WorkOrderService;
 
 /**
@@ -46,7 +45,7 @@ public class WorkOrderServiceImpl implements WorkOrderService {
 	 * @see com.hottop.raisehot.service.WorkOrderService#workOrderChange(long, com.hottop.raisehot.model.enumvalue.OptType)
 	 */
 	@Override
-	public void workOrderChange(String id, WorkOrderStatus workOrderStatus) {
+	public void workOrderChange(String id, WorkOrder.Status workOrderStatus) {
 		workOrderDao.workOrderModifyStatus(id, workOrderStatus.getCode()); 
 	}
 

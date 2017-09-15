@@ -6,7 +6,7 @@
  * @date 2017年8月24日上午10:41:13 
  * @version V1.0   
  */
-package com.hottop.raisehot.mockmvc;
+package com.hottop.raisehot.controller;
 
 /**
  * @ClassName: dd

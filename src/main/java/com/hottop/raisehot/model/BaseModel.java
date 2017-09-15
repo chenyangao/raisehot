@@ -11,8 +11,6 @@ package com.hottop.raisehot.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.hottop.raisehot.model.enums.Status;
-
 /**
  * @ClassName: BaseModel
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -31,7 +29,7 @@ public abstract class BaseModel implements Serializable{
     /**  
      * @Fields status : TODO(用一句话描述这个变量表示什么)  
      */  
-    protected Status status;
+    protected String status;
 
     /**  
      * @Fields creator :  创建人 
@@ -88,7 +86,7 @@ public abstract class BaseModel implements Serializable{
 	 * @param version
 	 * @param remark
 	 */
-	public BaseModel(String id, Status status, User creator, User modifier, Date createTime, Date updateTime,
+	public BaseModel(String id, String status, User creator, User modifier, Date createTime, Date updateTime,
 			Date startDate, Date endDate, int version, String remark) {
 		super();
 		this.id = id;
@@ -102,7 +100,6 @@ public abstract class BaseModel implements Serializable{
 		this.version = version;
 		this.remark = remark;
 	}
-
 	/**  
 	 * @Title: BaseModel  
 	 * @Description: TODO(这里用一句话描述这个方法的作用)  
@@ -137,14 +134,14 @@ public abstract class BaseModel implements Serializable{
 	/**
 	 * @return the status
 	 */
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
 	/**
 	 * @param status the status to set
 	 */
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 

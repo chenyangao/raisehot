@@ -12,7 +12,8 @@ import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 
-import com.hottop.raisehot.model.enums.Status;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * @ClassName: User
@@ -78,36 +79,90 @@ public class User extends BaseModel {
 	 * @Fields address : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private String address;
+	/**  
+	 * @Fields status : TODO(用一句话描述这个变量表示什么)  
+	 */  
+	private Status userStatus;
+	/**
+	 * @ClassName: UserStatus
+	 * @Description: TODO(这里用一句话描述这个类的作用)
+	 * @author cyg(chenyangao@lakala.com)
+	 * @date 2017年9月8日上午9:34:54
+	 *
+	 * 
+	 */
+	public enum Status {
+		
+		/**  
+		 * @Fields Enable : TODO(用一句话描述这个变量表示什么)  
+		 */  
+		Enable("Enable", "启用"),
+		/**  
+		 * @Fields Disable : TODO(用一句话描述这个变量表示什么)  
+		 */  
+		Disable("Disable", "停用"),
+		/**  
+		 * @Fields Frozen : TODO(用一句话描述这个变量表示什么)  
+		 */  
+		Frozen("Frozen", "冻结"),
+	    ;
+	 
+		/**  
+		 * @Fields code : 编码  
+		 */  
+		private String code ;
+		/**  
+		 * @Fields desc : 描述  
+		 */  
+		private String desc ;
 
+	    /**
+		 * @return the code
+		 */
+		public String getCode() {
+			return code;
+		}
+		/**
+		 * @return the desc
+		 */
+		@JsonValue
+		public String getDesc() {
+			return desc;
+		}
+		/**  
+		 * @Title: Status  
+		 * @Description: TODO(这里用一句话描述这个方法的作用)  
+		 * @param code
+		 * @param desc
+		 */
+		private Status(String code, String desc) {
+			this.code = code;
+			this.desc = desc;
+		}
+
+		/**
+	    * 根据编码返回枚举值
+	    * @param code
+	    * @return
+	    */
+		@JsonCreator
+	    public static Status getEnums(String code) {
+	        for (Status enums : values()) {
+	            if (code.equals(enums.getCode())) {
+	                return enums;
+	            }
+	        }
+	        return null;
+	    }
+	}
+	
 	/**  
 	 * @Title: User  
 	 * @Description: TODO(这里用一句话描述这个方法的作用)  
-	 * @param phoneNumber
-	 * @param userType
-	 * @param nickName
-	 * @param wechatId
-	 * @param isNumber
-	 * @param isName
-	 * @param qq
-	 * @param province
-	 * @param goldCoins
-	 * @param address
 	 */
-	public User(String phoneNumber, String userType, String nickName, String wechatId, String isNumber, String isName,
-			String qq, String province, Integer goldCoins, String address) {
-		super();
-		this.phoneNumber = phoneNumber;
-		this.userType = userType;
-		this.nickName = nickName;
-		this.wechatId = wechatId;
-		this.isNumber = isNumber;
-		this.isName = isName;
-		this.qq = qq;
-		this.province = province;
-		this.goldCoins = goldCoins;
-		this.address = address;
+	public User() {
+		// TODO Auto-generated constructor stub
 	}
-
 	/**  
 	 * @Title: User  
 	 * @Description: TODO(这里用一句话描述这个方法的作用)  
@@ -124,34 +179,33 @@ public class User extends BaseModel {
 	 * @param phoneNumber
 	 * @param userType
 	 * @param nickName
+	 * @param password
 	 * @param wechatId
 	 * @param isNumber
 	 * @param isName
 	 * @param qq
 	 * @param province
 	 * @param goldCoins
+	 * @param address
+	 * @param userStatus
 	 */
-	public User(String id, Status status, User creator, User modifier, Date createTime, Date updateTime, Date startDate,
+	public User(String id, String status, User creator, User modifier, Date createTime, Date updateTime, Date startDate,
 			Date endDate, int version, String remark, String phoneNumber, String userType, String nickName,
-			String wechatId, String isNumber, String isName, String qq, String province, Integer goldCoins) {
+			String password, String wechatId, String isNumber, String isName, String qq, String province,
+			Integer goldCoins, String address, Status userStatus) {
 		super(id, status, creator, modifier, createTime, updateTime, startDate, endDate, version, remark);
 		this.phoneNumber = phoneNumber;
 		this.userType = userType;
 		this.nickName = nickName;
+		this.password = password;
 		this.wechatId = wechatId;
 		this.isNumber = isNumber;
 		this.isName = isName;
 		this.qq = qq;
 		this.province = province;
 		this.goldCoins = goldCoins;
-	}
-
-	/**  
-	 * @Title: User  
-	 * @Description: TODO(这里用一句话描述这个方法的作用)  
-	 */
-	public User() {
-		// TODO Auto-generated constructor stub
+		this.address = address;
+		this.userStatus = userStatus;
 	}
 
 	/**  
@@ -316,7 +370,18 @@ public class User extends BaseModel {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	/**
+	 * @return the userStatus
+	 */
+	public Status getUserStatus() {
+		return userStatus;
+	}
+	/**
+	 * @param userStatus the userStatus to set
+	 */
+	public void setUserStatus(Status userStatus) {
+		this.userStatus = userStatus;
+	}
 	/**   
 	 * @Title: main   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
@@ -353,7 +418,7 @@ public class User extends BaseModel {
 		return "User [phoneNumber=" + phoneNumber + ", userType=" + userType + ", nickName=" + nickName + ", password="
 				+ password + ", wechatId=" + wechatId + ", isNumber=" + isNumber + ", isName=" + isName + ", qq=" + qq
 				+ ", province=" + province + ", goldCoins=" + goldCoins + ", address=" + address + ", id=" + id
-				+ ", status=" + status + ", creator=" + creator + ", modifier=" + modifier + ", createTime="
+				+ ", status=" + userStatus + ", creator=" + creator + ", modifier=" + modifier + ", createTime="
 				+ createTime + ", updateTime=" + updateTime + ", startDate=" + startDate + ", endDate=" + endDate
 				+ ", version=" + version + ", remark=" + remark + "]";
 	}

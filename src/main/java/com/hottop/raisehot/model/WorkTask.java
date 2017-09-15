@@ -10,8 +10,6 @@ package com.hottop.raisehot.model;
 
 import java.util.List;
 
-import com.hottop.raisehot.model.enums.TaskStatus;
-
 /**
  * @ClassName: 工作任务
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -53,7 +51,7 @@ public class WorkTask extends BaseModel {
 	/**  
 	 * @Fields taskStatus : 任务状态  
 	 */  
-	private TaskStatus taskStatus =TaskStatus.Release;
+	private Status taskStatus =Status.Release;
 	/**  
 	 * @Fields orderUser : TODO(用一句话描述这个变量表示什么)  
 	 */  
@@ -63,7 +61,63 @@ public class WorkTask extends BaseModel {
 	 * @Fields optRecords : 操作记录 
 	 */  
 	private List<OptRecord> optRecords ;
-	 
+	
+	public enum Status {
+		/**  
+		 * @Fields Enable : TODO(用一句话描述这个变量表示什么)  
+		 */  
+		Release("Release", "发布"),
+		/**  
+		 * @Fields Disable : TODO(用一句话描述这个变量表示什么)  
+		 */  
+		Cancel("Cancel", "取消"),
+		/**  
+		 * @Fields Frozen : TODO(用一句话描述这个变量表示什么)  
+		 */  
+		Complete("Complete", "完成");
+
+	    /* 编码 */
+
+	    /* 描述 */
+		private String code ;
+		private String desc ;
+	    /**  
+		 * @Title: TaskStatus  
+		 * @Description: TODO(这里用一句话描述这个方法的作用)  
+		 * @param code
+		 * @param desc
+		 */
+		private Status(String code, String desc) {
+			this.code = code;
+			this.desc = desc;
+		}
+
+	    /**
+		 * @return the code
+		 */
+		public String getCode() {
+			return code;
+		}
+		/**
+		 * @return the desc
+		 */
+		public String getDesc() {
+			return desc;
+		}
+		/**
+	    * 根据编码返回枚举值
+	    * @param code
+	    * @return
+	    */
+	    public static Status getEnums(String code) {
+	        for (Status enums : values()) {
+	            if (code.equals(enums.getCode())) {
+	                return enums;
+	            }
+	        }
+	        return null;
+	    }
+	}
 	/**
 	 * @return the serialNo
 	 */
@@ -95,14 +149,14 @@ public class WorkTask extends BaseModel {
 	/**
 	 * @return the taskStatus
 	 */
-	public TaskStatus getTaskStatus() {
+	public Status getTaskStatus() {
 		return taskStatus;
 	}
 
 	/**
 	 * @param taskStatus the taskStatus to set
 	 */
-	public void setTaskStatus(TaskStatus taskStatus) {
+	public void setTaskStatus(Status taskStatus) {
 		this.taskStatus = taskStatus;
 	}
 

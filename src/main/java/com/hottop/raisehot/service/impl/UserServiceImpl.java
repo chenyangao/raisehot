@@ -22,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hottop.raisehot.dao.UserDAO;
 import com.hottop.raisehot.model.User;
-import com.hottop.raisehot.model.enums.Status;
 import com.hottop.raisehot.service.UserService;
 import com.hottop.raisehot.util.SnowflakeIdWorker;
 
@@ -55,7 +54,7 @@ public class UserServiceImpl implements UserService {
 		user.setId(id);
 		user.setCreator(new User(id));
 		user.setModifier(new User(id));
-		user.setStatus(Status.Enable);
+		user.setUserStatus(User.Status.Disable);
 		userDao.insertUser(user);
 		logger.info(MessageFormat.format("用户信息:{0} ",user.toString()));
 		logger.info(MessageFormat.format("ID:{0} ",id));

@@ -8,20 +8,20 @@
  */
 package com.hottop.raisehot.mock;
 
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.mock;
-
 import java.util.Iterator;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.service.UserService;
-import com.hottop.raisehot.service.impl.UserServiceImpl;
 
 /**
  * @ClassName: MockitoTest
@@ -31,22 +31,20 @@ import com.hottop.raisehot.service.impl.UserServiceImpl;
  *
  * 
  */
-public class MockitoTest {
-	UserService userService = mock(UserService.class);
-	UserServiceImpl userServiceImpl = mock(UserServiceImpl.class);
-	@Mock
-	User user ;
-	@Before
-	public  void Before(){
-		MockitoAnnotations.initMocks(this);
-	}
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class MockitoServieTest {
+	  @Autowired
+	private  UserService userService  ; 
+		protected final Logger       logger = LoggerFactory.getLogger(this.getClass());
+
 	@Test
-	public void test() {
+	public void testdd() {
 		List<User> users = userService.getAllUser(new User());
 		for (Iterator iterator = users.iterator(); iterator.hasNext();) {
 			User user = (User) iterator.next();
-			System.out.println(user.toString());
+			logger.info(user.toString());
 		}
  	}
-
 }

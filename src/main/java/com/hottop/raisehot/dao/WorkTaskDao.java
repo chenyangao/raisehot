@@ -11,7 +11,6 @@ package com.hottop.raisehot.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import com.hottop.raisehot.model.WorkTask;
 
@@ -21,7 +20,6 @@ import com.hottop.raisehot.model.WorkTask;
  * @author cyg(chenyangao@lakala.com)
  * @date 2017年8月15日上午11:13:41
  */
-@Repository("workTaskDao")
 public interface WorkTaskDao {
 
 	/**   

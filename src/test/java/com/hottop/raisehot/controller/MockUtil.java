@@ -6,7 +6,7 @@
  * @date 2017年7月9日下午4:41:23 
  * @version V1.0   
  */
-package com.hottop.raisehot.mockmvc;
+package com.hottop.raisehot.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 

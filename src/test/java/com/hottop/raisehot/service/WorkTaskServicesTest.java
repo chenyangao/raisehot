@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.hottop.raisehot.model.User;
 import com.hottop.raisehot.model.WorkOrder;
 import com.hottop.raisehot.model.WorkTask;
-import com.hottop.raisehot.model.enums.TaskStatus;
 /**
  * @ClassName: WorkTaskServicesTest
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -54,7 +53,7 @@ public class WorkTaskServicesTest extends BaseService{
 	@Test
 	public void completeTask(){
 		logger.debug("completeTask() - start");
-		workTaskServie.completeTask("347121130080829440", TaskStatus.Complete); 
+		workTaskServie.completeTask("347121130080829440", WorkTask.Status.Complete); 
 		logger.info("viewTaskList() - end");
 	}
 	@Test

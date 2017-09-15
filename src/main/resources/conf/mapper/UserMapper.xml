@@ -18,7 +18,7 @@
 		<result property="qq" column="qq" />
 		<result property="province" column="province" />
 		<result property="address" column="gold_coins" />
-		<result property="status" column="status" />
+		<result property="userStatus" column="status" />
 		<result property="goldCoins" column="gold_coins" />
 		<result property="creator.id" column="creator" />
 		<result property="modifier.id" column="modifier" />
@@ -41,7 +41,7 @@
 		(#{id}, #{phoneNumber}, #{userType},
 		#{password}, #{nickName}, #{wechatId}, #{isNumber}, #{isName}, #{qq},
 		#{province}, #{goldCoins},
-		#{status}, #{creator.id}, #{modifier.id},
+		#{userStatus}, #{creator.id}, #{modifier.id},
 		#{createTime}, #{updateTime}, #{startDate}, #{endDate}, #{version},
 		#{remark})
 	</insert>
@@ -70,7 +70,7 @@
 	qq,
 	province,
 	gold_coins,
-	status
+	status userStatus
 	FROM tb_user
 	where phone_number= #{phoneNumber}
 	and password = #{password}
@@ -90,7 +90,7 @@
 		qq,
 		province,
 		gold_coins,
-		status,
+		status userStatus,
 		creator,
 		modifier,
 		create_time,
@@ -114,7 +114,7 @@
 		qq ,
 		province,
 		gold_coins goldCoins,
-		status
+		status userStatus
 		FROM tb_user
 		where id= #{id}
 	</select>

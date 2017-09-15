@@ -11,8 +11,6 @@ package com.hottop.raisehot.service;
 import java.util.List;
 
 import com.hottop.raisehot.model.WorkOrder;
-import com.hottop.raisehot.model.enums.OptType;
-import com.hottop.raisehot.model.enums.WorkOrderStatus;
 
 /**
  * @ClassName: WorkOrderService
@@ -40,7 +38,7 @@ public interface WorkOrderService {
 	 * @param cancel
 	 */  
 	
-	void workOrderChange(String id, WorkOrderStatus cancel);
+	void workOrderChange(String id, WorkOrder.Status cancel);
 
 	/**   
 	 * @Title: getAllWorkOrder   

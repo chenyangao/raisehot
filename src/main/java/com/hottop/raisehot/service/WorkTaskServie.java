@@ -11,7 +11,6 @@ package com.hottop.raisehot.service;
 import java.util.List;
 
 import com.hottop.raisehot.model.WorkTask;
-import com.hottop.raisehot.model.enums.TaskStatus;
 
 /**
  * @ClassName: WorkTaskServies
@@ -36,14 +35,14 @@ public interface WorkTaskServie {
 	 * @param id
 	 * @param taskStatus
 	 */  
-	public void cancelTask(String id,TaskStatus taskStatus);
+	public void cancelTask(String id,WorkTask.Status taskStatus);
 	/**   
 	 * @Title: completeTask   
 	 * @Description: TODO(这里用一句话描述这个方法的作用)   
 	 * @param id
 	 * @param taskStatus
 	 */  
-	public void completeTask(String id,TaskStatus taskStatus);
+	public void completeTask(String id,WorkTask.Status taskStatus);
 	
 	/**   
 	 * @Title: viewTaskList   

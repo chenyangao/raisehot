@@ -12,9 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.hottop.raisehot.model.enums.Status;
-import com.hottop.raisehot.model.enums.WorkOrderStatus;
-
 /**
  * @ClassName: WorkOrder
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -85,12 +82,68 @@ public class WorkOrder extends BaseModel {
 	 */  
 	private Integer additionalPrincipal;
 	
-	private WorkOrderStatus workOrderStatus ;
+	private Status orderStatus ;
 	/**  
 	 * @Fields workTasks : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private List<WorkTask> workTasks = new ArrayList<WorkTask>();
 
+	public enum Status {
+		/**  
+		 * @Fields Enable : TODO(用一句话描述这个变量表示什么)  
+		 */  
+		Release("Release", "发布"),
+		/**  
+		 * @Fields Disable : TODO(用一句话描述这个变量表示什么)  
+		 */  
+		Cancel("Cancel", "取消"),
+		/**  
+		 * @Fields Frozen : TODO(用一句话描述这个变量表示什么)  
+		 */  
+		Complete("Complete", "完成");
+	    /* 编码 */
+
+	    /* 描述 */
+		private String code ;
+		private String desc ;
+	    /**  
+		 * @Title: TaskStatus  
+		 * @Description: TODO(这里用一句话描述这个方法的作用)  
+		 * @param code
+		 * @param desc
+		 */
+		private Status(String code, String desc) {
+			this.code = code;
+			this.desc = desc;
+		}
+
+	    /**
+		 * @return the code
+		 */
+		public String getCode() {
+			return code;
+		}
+		/**
+		 * @return the desc
+		 */
+		public String getDesc() {
+			return desc;
+		}
+		/**
+	    * 根据编码返回枚举值
+	    * @param code
+	    * @return
+	    */
+	    public static Status getEnums(String code) {
+	        for (Status enums : values()) {
+	            if (code.equals(enums.getCode())) {
+	                return enums;
+	            }
+	        }
+	        return null;
+	    }
+	}
+	
 	/**
 	 * @return the goldCoinSum
 	 */
@@ -274,15 +327,15 @@ public class WorkOrder extends BaseModel {
 	/**
 	 * @return the workOrderStatus
 	 */
-	public WorkOrderStatus getWorkOrderStatus() {
-		return workOrderStatus;
+	public Status getWorkOrderStatus() {
+		return orderStatus;
 	}
 
 	/**
 	 * @param workOrderStatus the workOrderStatus to set
 	 */
-	public void setWorkOrderStatus(WorkOrderStatus workOrderStatus) {
-		this.workOrderStatus = workOrderStatus;
+	public void setWorkOrderStatus(Status workOrderStatus) {
+		this.orderStatus = workOrderStatus;
 	}
 
 	/*
@@ -317,7 +370,7 @@ public class WorkOrder extends BaseModel {
 				+ taskTime + ", comparativeOpt=" + comparativeOpt + ", favoritesOpt=" + favoritesOpt + ", chatOpt="
 				+ chatOpt + ", browseTime=" + browseTime + ", otherRequirement=" + otherRequirement
 				+ ", advancePrincipal=" + advancePrincipal + ", additionalPrincipal=" + additionalPrincipal
-				+ ", workOrderStatus=" + workOrderStatus + ", workTasks=" + workTasks + "]";
+				+ ", workOrderStatus=" + orderStatus + ", workTasks=" + workTasks + "]";
 	}
 
 	/**
@@ -345,61 +398,6 @@ public class WorkOrder extends BaseModel {
 	 * @param workTasks the workTasks to set
 	 */
 	public void setWorkTasks(List<WorkTask> workTasks) {
-		this.workTasks = workTasks;
-	}
-
-	/**  
-	 * @Title: WorkOrder  
-	 * @Description: TODO(这里用一句话描述这个方法的作用)  
-	 * @param id
-	 * @param status
-	 * @param creator
-	 * @param modifier
-	 * @param createTime
-	 * @param updateTime
-	 * @param startDate
-	 * @param endDate
-	 * @param version
-	 * @param remark
-	 * @param serialNo
-	 * @param jobType
-	 * @param goldCoinSum
-	 * @param taskCount
-	 * @param linkType
-	 * @param userLevel
-	 * @param taskTime
-	 * @param comparativeOpt
-	 * @param favoritesOpt
-	 * @param chatOpt
-	 * @param browseTime
-	 * @param otherRequirement
-	 * @param advancePrincipal
-	 * @param additionalPrincipal
-	 * @param workOrderStatus
-	 * @param workTasks
-	 */
-	public WorkOrder(String id, Status status, User creator, User modifier, Date createTime, Date updateTime,
-			Date startDate, Date endDate, int version, String remark, String serialNo, String jobType,
-			Integer goldCoinSum, Integer taskCount, String linkType, String userLevel, String taskTime,
-			String comparativeOpt, String favoritesOpt, String chatOpt, String browseTime, String otherRequirement,
-			Integer advancePrincipal, Integer additionalPrincipal, WorkOrderStatus workOrderStatus,
-			List<WorkTask> workTasks) {
-		super(id, status, creator, modifier, createTime, updateTime, startDate, endDate, version, remark);
-		this.serialNo = serialNo;
-		this.jobType = jobType;
-		this.goldCoinSum = goldCoinSum;
-		this.taskCount = taskCount;
-		this.linkType = linkType;
-		this.userLevel = userLevel;
-		this.taskTime = taskTime;
-		this.comparativeOpt = comparativeOpt;
-		this.favoritesOpt = favoritesOpt;
-		this.chatOpt = chatOpt;
-		this.browseTime = browseTime;
-		this.otherRequirement = otherRequirement;
-		this.advancePrincipal = advancePrincipal;
-		this.additionalPrincipal = additionalPrincipal;
-		this.workOrderStatus = workOrderStatus;
 		this.workTasks = workTasks;
 	}
 	/**  

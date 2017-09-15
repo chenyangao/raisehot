@@ -8,8 +8,6 @@
  */
 package com.hottop.raisehot.model;
 
-import com.hottop.raisehot.model.enums.TransactionType;
-
 /**
  * @ClassName: TransactionRecord
  * @Description: TODO(这里用一句话描述这个类的作用)
@@ -34,6 +32,10 @@ public class TransactionRecord extends BaseModel {
 	 * @Fields transactionType : TODO(用一句话描述这个变量表示什么)  
 	 */  
 	private TransactionType transactionType ;
+	
+	public enum TransactionType {
+
+	}
 	/**  
 	 * @Fields glodCoinsSmount : TODO(用一句话描述这个变量表示什么)  
 	 */  
